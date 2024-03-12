@@ -1,74 +1,71 @@
 import { StyleSheet } from "react-native";
+import {Dimensions} from 'react-native';
+
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 export const styles = StyleSheet.create({
     body: {
-        flex: 1,
-        display: 'flex',
+        width,
+        height,
+        backgroundColor: '#C3C7DF'
     },
     background: {
         position: 'absolute',
-        height: '100%',
-        width: '100%',
+        width,
+        height
     },
+
+    /* Header */
     header: {
-        flex: 1,
+        height: height/2.2,
     },
     iconBox: {
-        flex: 1,
         display: 'flex',
         flexDirection: 'row',
-        marginTop: -50,
-        alignItems: 'center',
+        marginTop: -60,
+        justifyContent: 'space-between',
         marginHorizontal: 2,
     },
     icon: {
-        flex: 1,
-        height: 120,
+        width: width/2,
+        height: 140,
     },
     icon1: {
-        transform: [
-            { rotateZ: '-30deg' },
-        ] 
+        // transform: [
+        //     { rotateZ: '-30deg' },
+        // ]
+        // transform: [
+        //     { rotate : }
+        // ]
     },
     icon2: {
-        transform: [
-            { rotateZ: '30deg' },
-            { rotateY: '-180deg' },
-        ] 
+    //     transform: [
+    //         { rotateZ: '30deg' },
+    //         { rotateY: '-180deg' },
+    //     ] 
     },
-    name: {
-        width: 275,
+    logo: {
+        width: width/1.3,
+        objectFit: 'contain',
         alignSelf: 'center',
     },
     title: {
-        flex: 1,
+        marginTop: -10,
         color: '#fff',
         textAlign: 'center',
         fontSize: 60,
         fontFamily: 'Mina-Bold'
     },
+
+    /* Login form */
     form: {
         flex: 1,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
     },
-    inputBox: {
-        width: '90%',
-        height: 55,
-        marginVertical: 5,
-        backgroundColor: '#694187',
-        borderRadius: 15,
-        paddingHorizontal: '5%',
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    inputText: {
-        marginLeft: '5%',
-        color: '#fff',
-        fontSize: 18,
-        fontFamily: 'Mina-Regular',
-    },
+
     buttonBox: {
         width: '75%',
         height: 55,
