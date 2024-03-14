@@ -12,12 +12,15 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
     },
     inputText: {
-        marginLeft: '2%',
-        marginRight: '8%',
+        flex: 1,
+        marginHorizontal: '2%',
         color: '#fff',
         fontSize: 18,
         fontFamily: 'Mina-Regular',
         textAlignVertical: 'bottom',
         paddingVertical: 0
     },
+    markText: {
+        color: 'red'
+    }
 });

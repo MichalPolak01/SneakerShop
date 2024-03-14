@@ -39,7 +39,7 @@ export const styles = StyleSheet.create({
         marginTop: -20,
         color: '#fff',
         textAlign: 'center',
-        fontSize: 45,
+        fontSize: 42,
         fontFamily: 'Mina-Bold'
     },
 
@@ -49,9 +49,11 @@ export const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        
+        
     },
     buttonBox: {
-        width: '75%',
+        width: '80%',
         height: 55,
         marginVertical: 10,
         backgroundColor: '#490e75',
@@ -60,13 +62,16 @@ export const styles = StyleSheet.create({
     button: {
         width: '100%',
         height: '100%',
+        display: 'flex',
+        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center'
     },
     buttonText: {
-        fontSize: 30,
+        fontSize: 22,
         color: '#fff',
-        fontFamily: 'Mina-Bold'
+        fontFamily: 'Mina-Bold',
+        marginHorizontal: '3%'
     },
     signUp: {
         display: 'flex',
@@ -79,5 +84,17 @@ export const styles = StyleSheet.create({
     signUpLink: {
         color: '#490e75',
         fontFamily: 'Mina-Bold'
+    },
+    buttonNext2Button: {
+        display: 'flex',
+        flexDirection: 'row'
+    },
+    buttonBoxSmall: {
+        width: '45%',
+        height: 55,
+        marginVertical: 10,
+        backgroundColor: '#490e75',
+        borderRadius: 15,
+        marginHorizontal: '1%'
     }
 });

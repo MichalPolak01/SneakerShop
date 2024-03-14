@@ -31,20 +31,6 @@ export const styles = StyleSheet.create({
         width: width/2,
         height: 140,
     },
-    icon1: {
-        // transform: [
-        //     { rotateZ: '-30deg' },
-        // ]
-        // transform: [
-        //     { rotate : }
-        // ]
-    },
-    icon2: {
-    //     transform: [
-    //         { rotateZ: '30deg' },
-    //         { rotateY: '-180deg' },
-    //     ] 
-    },
     logo: {
         width: width/1.3,
         objectFit: 'contain',
@@ -96,5 +82,4 @@ export const styles = StyleSheet.create({
         color: '#490e75',
         fontFamily: 'Mina-Bold'
     }
-
 });
