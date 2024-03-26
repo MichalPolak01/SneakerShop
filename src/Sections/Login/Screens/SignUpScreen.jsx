@@ -101,24 +101,24 @@ export default function SignUpScreen() {
         return newErrors;
     };
 
-    const isValidPhone = (phone: string) => {
+    const isValidPhone = (phone) => {
         const nineDigitsRegex = /^\d{9}$/;
         const plusElevenDigitsRegex = /^\+\d{11}$/;
     
         return nineDigitsRegex.test(phone) || plusElevenDigitsRegex.test(phone) ;
     };
 
-    const isValidEmail = (email: string) => {
+    const isValidEmail = (email) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     };
 
-    const isEmailUsed = (email: string) => {
+    const isEmailUsed = (email) => {
         /* TO DO CHECK EMAIL IN DATABASE */
         return false;
     }
 
-    const isStrongPassword = (password: string) => {
+    const isStrongPassword = (password) => {
         return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(password);
     }
 
@@ -164,7 +164,7 @@ export default function SignUpScreen() {
         return newErrors;
     }
 
-    const isValidPostalCode = (postalCode: string) => {
+    const isValidPostalCode = (postalCode) => {
         const postalCodeRegex = /^[0-9]{2}-?[0-9]{3}$/;
     
         return postalCodeRegex.test(postalCode);
@@ -204,7 +204,7 @@ export default function SignUpScreen() {
         handleChangeRoute();
     }
 
-    const handleChange = (name:string, value:string) => {
+    const handleChange = (name, value) => {
         /* Phone check */
         if ( name === 'phone' && !/^\+?([0-9]*)$/.test(value)) {
             return;
@@ -248,12 +248,12 @@ export default function SignUpScreen() {
             <KeyboardAvoidingView behavior='height' keyboardVerticalOffset={-300} style={styles.form}>
                 { personalDataForm ? 
                     <>
-                        <LoginFormInput iconName='person-outline' iconSize={30} text='Name' value={account.name} color={markError.name} handleOnChange={(value:string) => handleChange('name', value)} />
-                        <LoginFormInput iconName='person-outline' iconSize={30} text='Surname' value={account.surname} color={markError.surname} handleOnChange={(value:string) => handleChange('surname', value)} />
-                        <LoginFormInput iconName='call-outline' iconSize={30} text='Phone' value={account.phone} color={markError.phone} handleOnChange={(value:string) => handleChange('phone', value)} />
-                        <LoginFormInput iconName='mail-outline' iconSize={30} text='E-mail' value={account.email} color={markError.email} handleOnChange={(value:string) => handleChange('email', value)} />
-                        <LoginFormInput iconName='lock-closed-outline' iconSize={30} text='Password' value={account.password} color={markError.password} secue={true} handleOnChange={(value:string) => handleChange('password', value)} />
-                        <LoginFormInput iconName='lock-closed-outline' iconSize={30} text='Re-password' value={account.rePassword} color={markError.rePassword} secue={true} handleOnChange={(value:string) => handleChange('rePassword', value)} />
+                        <LoginFormInput iconName='person-outline' iconSize={30} text='Name' value={account.name} color={markError.name} handleOnChange={(value) => handleChange('name', value)} />
+                        <LoginFormInput iconName='person-outline' iconSize={30} text='Surname' value={account.surname} color={markError.surname} handleOnChange={(value) => handleChange('surname', value)} />
+                        <LoginFormInput iconName='call-outline' iconSize={30} text='Phone' value={account.phone} color={markError.phone} handleOnChange={(value) => handleChange('phone', value)} />
+                        <LoginFormInput iconName='mail-outline' iconSize={30} text='E-mail' value={account.email} color={markError.email} handleOnChange={(value) => handleChange('email', value)} />
+                        <LoginFormInput iconName='lock-closed-outline' iconSize={30} text='Password' value={account.password} color={markError.password} secue={true} handleOnChange={(value) => handleChange('password', value)} />
+                        <LoginFormInput iconName='lock-closed-outline' iconSize={30} text='Re-password' value={account.rePassword} color={markError.rePassword} secue={true} handleOnChange={(value) => handleChange('rePassword', value)} />
 
                         <Animated.View entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.buttonBox}>
                             
@@ -273,11 +273,11 @@ export default function SignUpScreen() {
                 :
                     <>
                         <>
-                            <LoginFormInput iconName='navigate-outline' iconSize={30} text='Street Address' value={account.street} color={markError.street} handleOnChange={(value:string) => handleChange('street', value)} />
-                            <LoginFormInput iconName='locate-outline' iconSize={30} text='Street Address Line 2' value={account.streetSecondLine} color={markError.streetSecondLine} handleOnChange={(value:string) => handleChange('streetSecondLine', value)} />
-                            <LoginFormInput iconName='navigate-outline' iconSize={30} text='City' value={account.city} color={markError.city} handleOnChange={(value:string) => handleChange('city', value)} />
-                            <LoginFormInput iconName='locate-outline' iconSize={30} text='Postal / Zpi Code' value={account.postalCode} color={markError.postalCode} handleOnChange={(value:string) => handleChange('postalCode', value)} />
-                            <LoginFormInput iconName='navigate-outline' iconSize={30} text='Country' value={account.country} color={markError.country} handleOnChange={(value:string) => handleChange('country', value)} />
+                            <LoginFormInput iconName='navigate-outline' iconSize={30} text='Street Address' value={account.street} color={markError.street} handleOnChange={(value) => handleChange('street', value)} />
+                            <LoginFormInput iconName='locate-outline' iconSize={30} text='Street Address Line 2' value={account.streetSecondLine} color={markError.streetSecondLine} handleOnChange={(value) => handleChange('streetSecondLine', value)} />
+                            <LoginFormInput iconName='navigate-outline' iconSize={30} text='City' value={account.city} color={markError.city} handleOnChange={(value) => handleChange('city', value)} />
+                            <LoginFormInput iconName='locate-outline' iconSize={30} text='Postal / Zpi Code' value={account.postalCode} color={markError.postalCode} handleOnChange={(value) => handleChange('postalCode', value)} />
+                            <LoginFormInput iconName='navigate-outline' iconSize={30} text='Country' value={account.country} color={markError.country} handleOnChange={(value) => handleChange('country', value)} />
                         </>
                         <View style={styles.buttonNext2Button}>
                             <Animated.View entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.buttonBoxSmall}>
