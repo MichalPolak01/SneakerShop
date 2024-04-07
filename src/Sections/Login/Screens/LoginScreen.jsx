@@ -95,9 +95,12 @@ export default function LoginScreen() {
                 <LoginFormInput iconName='lock-closed-outline' iconSize={30} text='Password' value={login.password} color={markError.password} secue={true} handleOnChange={(value) => handleChange('password', value)}/>
                 
                 <Animated.View entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.buttonBox}>
-                    <TouchableOpacity onPress={() => handleLogin()} style={styles.button}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Product')} style={styles.button}>
                         <Text style={styles.buttonText}>Login</Text>
                     </TouchableOpacity>
+                    {/* <TouchableOpacity onPress={() => handleLogin()} style={styles.button}>
+                        <Text style={styles.buttonText}>Login</Text>
+                    </TouchableOpacity> */}
                 </Animated.View>
                 
                 <Animated.View entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.signUp}>
