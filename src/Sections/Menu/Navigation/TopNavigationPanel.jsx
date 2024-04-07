@@ -17,13 +17,13 @@ export default function TopNavigationPanel() {
                 {isMainMenu && (
                     <>
                         <TouchableOpacity>
-                            <Text style={styles.IconsSize}>Sortuj</Text>
+                            <Text style={styles.navigateText}>Sortuj</Text>
                         </TouchableOpacity>
 
                         <Image style={styles.nameImage} source={require('../../../../assets/Images/Login/Name.png')} />
                         
                         <TouchableOpacity>
-                            <Text style={styles.IconsSize}>Filtruj</Text>
+                            <Text style={styles.navigateText}>Filtruj</Text>
                         </TouchableOpacity>
                     </>
                 )}
@@ -31,13 +31,13 @@ export default function TopNavigationPanel() {
                 {isProductScreen && (
                     <>
                         <TouchableOpacity onPress={() => navigation.navigate('MainMenu')}>
-                            <Image style={styles.IconsSize} source={require('../../../../assets/Images/Menu/ArrowIcon.png')} />
+                            <Image style={styles.iconsSize} source={require('../../../../assets/Images/Menu/ArrowIcon.png')} />
                         </TouchableOpacity>
 
                         <Image style={styles.nameImage} source={require('../../../../assets/Images/Login/Name.png')} />
                         
                         <TouchableOpacity>
-                            <Image style={styles.IconsSize} source={require('../../../../assets/Images/Menu/ShopingCartIcon.png')} />
+                            <Image style={styles.iconsSize} source={require('../../../../assets/Images/Menu/ShopingCartIcon.png')} />
                         </TouchableOpacity>
                     </>
                 )}

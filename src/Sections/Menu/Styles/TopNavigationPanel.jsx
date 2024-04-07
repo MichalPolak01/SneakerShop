@@ -22,10 +22,16 @@ export const styles = StyleSheet.create({
         width: 180,
         height: 30,
     },
-    IconsSize:{
+    iconsSize:{
         width: 55,
         height: 30,
+        fontSize: 17,
+        marginTop:3,
+    },
+    navigateText:{
         color: "white",
+        width: 55,
+        height: 30,
         fontSize: 17,
         marginTop:3,
     }
