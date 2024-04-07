@@ -23,13 +23,19 @@ export default function MainMenuScreen() {
 }
 
 function ProductItem({ product }) {
+    const navigation = useNavigation();
+    
+    const handleProductPress = () => {
+        navigation.navigate('Product', { productId: product.id });
+    };
+
     return (
-        <View style={styles.productContainer}>
+        <TouchableOpacity style={styles.productContainer} onPress={handleProductPress}>
             <Image style={styles.productImage} source={product.image} />
             <View style={styles.infoProductContainer}>
                 <Text style={styles.infoProductText}>{product.name}</Text>
                 <Text style={styles.infoProductText}>{product.price} zł</Text>
             </View>
-        </View>
-    )
+        </TouchableOpacity>
+    );
 }

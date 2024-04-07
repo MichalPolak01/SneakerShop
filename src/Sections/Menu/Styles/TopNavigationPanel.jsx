@@ -25,7 +25,6 @@ export const styles = StyleSheet.create({
     iconsSize:{
         width: 55,
         height: 30,
-        fontSize: 17,
         marginTop:3,
     },
     navigateText:{

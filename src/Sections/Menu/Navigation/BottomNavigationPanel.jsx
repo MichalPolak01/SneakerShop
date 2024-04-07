@@ -13,7 +13,7 @@ export default function BottomNavigationPanel() {
                     <Image style={styles.IconsSize} source={require('../../../../assets/Images/Menu/HomeIcon.png')} />
                 </TouchableOpacity>
                 
-                <TouchableOpacity onPress={() => navigation.navigate('Product')}>
+                <TouchableOpacity>
                     <Image style={styles.IconsSize} source={require('../../../../assets/Images/Menu/ShopingCartMenuIcon.png')} />
                 </TouchableOpacity>
 
