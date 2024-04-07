@@ -48,12 +48,30 @@ export const styles = StyleSheet.create({
     sizeProductContainer:{
         display: 'flex',
         flexDirection: 'row',
-        marginBottom: 17,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 13,
+        height: 50
     },
     sizeProductText:{
         color: primaryColor,
         fontSize: 20,
         fontWeight: "bold"
+    },
+    sizeSelectorContainer:{
+        backgroundColor: "#d7d7d7",
+        width: 30,
+        height: 30,
+        marginLeft: 18,
+        borderRadius: 5,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    sizeSelectorValue:{
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'white'
     },
     addProductButton:{
         backgroundColor: primaryColor,

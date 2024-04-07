@@ -1,4 +1,3 @@
-// TopNavigationPanel.js
 import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native'; 
@@ -36,10 +35,16 @@ export default function TopNavigationPanel() {
 
                         <Image style={styles.nameImage} source={require('../../../../assets/Images/Login/Name.png')} />
                         
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.navigate('ShoppingCart')}>
                             <Image style={styles.iconsSize} source={require('../../../../assets/Images/Menu/ShopingCartIcon.png')} />
                         </TouchableOpacity>
                     </>
+                )}
+                
+                {!isMainMenu && !isProductScreen && (
+                     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                        <Image style={styles.nameImage} source={require('../../../../assets/Images/Login/Name.png')} />
+                    </View>
                 )}
             </View>
             <View style={styles.bottomBorder}></View>

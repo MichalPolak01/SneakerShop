@@ -13,7 +13,6 @@ export default function ProductScreen() {
     const [productInfo, setProductInfo] = useState({
         category: '',
         name: '',
-        size: 'Rozmiar',
         description: '',
         price: '',
         image: null
@@ -42,7 +41,10 @@ export default function ProductScreen() {
                 <Text style={styles.categoryText}>{productInfo.category}</Text>
                 <Text style={styles.nameProductText}>{productInfo.name}</Text>
                 <View style={styles.sizeProductContainer}>
-                    <Text style={styles.sizeProductText}>{productInfo.size}</Text>
+                    <Text style={styles.sizeProductText}>Rozmiar</Text>
+                    <View style={styles.sizeSelectorContainer}>
+                        <Text style={styles.sizeSelectorValue}>41</Text>
+                    </View>
                 </View>
                 <View style={styles.descriptionContainer}>
                     <Text style={styles.sizeProductText}>Opis</Text>
@@ -50,6 +52,7 @@ export default function ProductScreen() {
                 </View>
             </ScrollView>
             <TouchableOpacity style={styles.addProductButton}>
+                <Image style={styles.shopingCartImage} source={require('../../../../assets/Images/Menu/ShopingAddCartIcon.png')} />
                 <Text style={styles.addProductText}>{productInfo.price} zł</Text>
             </TouchableOpacity>
         </View>

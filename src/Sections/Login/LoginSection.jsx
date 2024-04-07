@@ -6,6 +6,7 @@ import LoginScreen from './Screens/LoginScreen';
 import SignUpScreen from './Screens/SignUpScreen';
 import ProductScreen from '../Menu/Screens/ProductScreen';
 import MainMenuScreen from '../Menu/Screens/MainMenuScreen';
+import ShoppingCartScreen from '../Menu/Screens/ShoppingCartScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +17,7 @@ export default function LoginSection() {
             <Stack.Screen name='SignUp' component={SignUpScreen} />
             <Stack.Screen name='Product' component={ProductScreen} />
             <Stack.Screen name='MainMenu' component={MainMenuScreen} />
+            <Stack.Screen name='ShoppingCart' component={ShoppingCartScreen} />
         </Stack.Navigator>
     );
 }
