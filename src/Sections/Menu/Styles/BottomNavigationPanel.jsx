@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+const primaryColor = '#411c5d';
+
 export const styles = StyleSheet.create({
     body: {
         backgroundColor: '#c3c3dc',
@@ -11,22 +13,13 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-between', 
         paddingHorizontal: 15, 
         paddingVertical: 7,
-    },
-    bottomBorder:{
-        width: "auto",
-        height: 1,
         backgroundColor: "white",
-    },
-    nameImage:{
-        marginTop: 4,
-        width: 180,
-        height: 30,
+        borderColor: primaryColor,
+        borderWidth: 3,
+        borderRadius: 10,
     },
     IconsSize:{
-        width: 55,
-        height: 30,
-        color: "white",
-        fontSize: 17,
-        marginTop:3,
+        width: 70,
+        height: 40,
     }
 });

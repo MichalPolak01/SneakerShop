@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { View, Text, Image, TouchableOpacity, ScrollView, KeyboardAvoidingView, ToastAndroid, Button } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../Styles/ProductScreenStyle';
-import TopNavigationPanel from '../Navigation/NavigationPanel';
+import TopNavigationPanel from '../Navigation/TopNavigationPanel';
 
 export default function ProductScreen() {
     const navigation = useNavigation();
