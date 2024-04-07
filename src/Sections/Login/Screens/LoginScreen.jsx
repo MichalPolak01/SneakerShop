@@ -5,7 +5,6 @@ import { styles } from '../Styles/loginStyles'
 import { useNavigation } from '@react-navigation/native';
 import Animated, { FadeInUp, RotateInDownLeft } from 'react-native-reanimated';
 
-
 export default function LoginScreen() {
     const navigation = useNavigation();
     const [errors, setErrors] = useState({});
@@ -44,7 +43,7 @@ export default function LoginScreen() {
         return newErrors;
     }
 
-    const isEmailAvailable = (email: string) => {
+    const isEmailAvailable = (email) => {
         /* TO DO CHECK EMAIL IN DATABASE */
         return true;
     }
@@ -67,7 +66,7 @@ export default function LoginScreen() {
         // handleChangeRoute();
     }
 
-    const handleChange = (name:string, value:string) => {
+    const handleChange = (name, value) => {
         setLogin(prevLogin => ({
             ...prevLogin,
             [name]: value
@@ -92,8 +91,8 @@ export default function LoginScreen() {
             </View>
 
             <KeyboardAvoidingView behavior='height' keyboardVerticalOffset={-100} style={styles.form}>
-                <LoginFormInput iconName='mail-outline' iconSize={30} text='E-mail' value={login.email} color={markError.email} handleOnChange={(value:string) => handleChange('email', value)}/>
-                <LoginFormInput iconName='lock-closed-outline' iconSize={30} text='Password' value={login.password} color={markError.password} secue={true} handleOnChange={(value:string) => handleChange('password', value)}/>
+                <LoginFormInput iconName='mail-outline' iconSize={30} text='E-mail' value={login.email} color={markError.email} handleOnChange={(value) => handleChange('email', value)}/>
+                <LoginFormInput iconName='lock-closed-outline' iconSize={30} text='Password' value={login.password} color={markError.password} secue={true} handleOnChange={(value) => handleChange('password', value)}/>
                 
                 <Animated.View entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.buttonBox}>
                     <TouchableOpacity onPress={() => handleLogin()} style={styles.button}>
