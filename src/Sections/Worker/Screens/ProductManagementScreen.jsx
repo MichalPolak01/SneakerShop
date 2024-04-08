@@ -31,8 +31,18 @@ function CartItem({ product }) {
                     <View style={styles.productInfoContainer}>
                         <Text style={styles.nameProductText}>{product.name}</Text>
                         <View style={styles.sizeContainer}>
-                            <Text style={styles.sizeText}>Rozmiar</Text>
-                            <Text style={{...styles.sizeText, fontWeight:'bold', fontSize: 21}}>  41</Text>
+                            <View style={styles.partSelectorContainer}>
+                                <Text style={styles.sizeProductText}>Rozmiar</Text>
+                                <View style={styles.sizeSelectorContainer}>
+                                    <Text style={styles.sizeSelectorValue}>41</Text>
+                                </View>
+                            </View>
+                            <View style={styles.partSelectorContainer}>
+                                <Text style={styles.sizeProductText}>Ilość</Text>
+                                <View style={styles.sizeSelectorContainer}>
+                                    <Text style={styles.sizeSelectorValue}>1</Text>
+                                </View>
+                            </View>
                         </View>
                         <View style={styles.priceContainer}>
                             <TouchableOpacity style={styles.manageButtonContainer}>

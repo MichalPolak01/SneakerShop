@@ -37,11 +37,14 @@ export const styles = StyleSheet.create({
     },
     inputText:{
         marginLeft: 20,
-        marginTop: 8,
+        marginRight: 20,
         color: 'white',
         fontSize: 15,
         fontWeight: '600'
     },
+    placeholder: {
+        color: 'white',
+      },
     buttonContainer:{
         display: 'flex',
         justifyContent: 'center',

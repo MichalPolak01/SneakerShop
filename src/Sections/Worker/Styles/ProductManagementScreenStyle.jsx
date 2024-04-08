@@ -76,16 +76,40 @@ export const styles = StyleSheet.create({
         color: primaryColor,
         fontSize: 25,
         fontWeight: 'bold',
-        marginTop: 12,
+        marginTop: 1,
+        marginBottom: 10,
     },
     sizeContainer:{
         height: 40,
         display: 'flex',
         flexDirection: 'row',
     },
-    sizeText:{
+    sizeProductText:{
         color: primaryColor,
-        fontSize: 20,
+        fontSize: 17,
+        fontWeight: "bold"
+    },
+    sizeSelectorContainer:{
+        backgroundColor: "#d7d7d7",
+        width: 30,
+        height: 30,
+        marginLeft: 18,
+        borderRadius: 5,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    partSelectorContainer:{
+        width: 110,
+        display: 'flex',
+        flexDirection: 'row',
+        marginRight: 15,
+        left: 20
+    },
+    sizeSelectorValue:{
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'white'
     },
     priceContainer:{
         width: '112%',
