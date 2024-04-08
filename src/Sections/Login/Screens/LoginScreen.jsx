@@ -95,12 +95,9 @@ export default function LoginScreen() {
                 <LoginFormInput iconName='lock-closed-outline' iconSize={30} text='Password' value={login.password} color={markError.password} secue={true} handleOnChange={(value) => handleChange('password', value)}/>
                 
                 <Animated.View entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.buttonBox}>
-                    <TouchableOpacity onPress={() => navigation.navigate('OrderApproval')} style={styles.button}>
+                    <TouchableOpacity onPress={() => handleLogin()} style={styles.button}>
                         <Text style={styles.buttonText}>Login</Text>
                     </TouchableOpacity>
-                    {/* <TouchableOpacity onPress={() => handleLogin()} style={styles.button}>
-                        <Text style={styles.buttonText}>Login</Text>
-                    </TouchableOpacity> */}
                 </Animated.View>
                 
                 <Animated.View entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.signUp}>
@@ -109,6 +106,18 @@ export default function LoginScreen() {
                         <Text style={styles.signUpLink}>SignUp</Text>
                     </TouchableOpacity>
                 </Animated.View>
+
+                {/* Developer login  */}
+                <View style={{ display: "flex", alignItems: "center", backgroundColor: "#411c5d", width: 300, borderRadius: 20 }}>
+                    <TouchableOpacity onPress={() => navigation.navigate('MainMenu')}>
+                        <Text style={[styles.buttonText, {textAlign: 'center'}]}>User</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('OrderApproval')}>
+                        <Text style={[styles.buttonText, {textAlign: 'center'}]}>Worker</Text>
+                    </TouchableOpacity>
+                </View>
+
+
             </KeyboardAvoidingView>
         </ScrollView>
     )

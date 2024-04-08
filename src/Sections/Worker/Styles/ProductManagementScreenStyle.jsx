@@ -13,23 +13,12 @@ export const styles = StyleSheet.create({
     mainContainer:{
         flexGrow: 1,
         alignItems: 'center',
-        width: 411 // Później do zmiany bo belka się buguje
+        width: 411, // Później do zmiany bo belka się buguje
     },
-    setContainer:{
-        backgroundColor: "grey",
-        width: "95%",
-        flex: 1,
-        alignItems: 'center',
-        borderColor: primaryColor,
-        borderWidth: 3,
-        borderRadius: 20,
-        marginTop: 6,
-        marginBottom: 6,
-    },
-    shipButton:{
+    payForCartButton:{
         backgroundColor: primaryColor,
         flexDirection: "row",
-        width: 300,
+        width: 250,
         height: 65,
         borderRadius: 10,
         display: 'flex',
@@ -52,7 +41,7 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         height: 130,
-        width: 370,
+        width: 385,
         borderColor: primaryColor,
         borderWidth: 3,
         borderRadius: 20,
@@ -87,30 +76,47 @@ export const styles = StyleSheet.create({
         color: primaryColor,
         fontSize: 25,
         fontWeight: 'bold',
-        marginTop: 10,
+        marginTop: 12,
     },
     sizeContainer:{
         height: 40,
         display: 'flex',
         flexDirection: 'row',
-        marginTop: 5
     },
     sizeText:{
         color: primaryColor,
         fontSize: 20,
     },
     priceContainer:{
-        width: '110%',
+        width: '112%',
         height: 40,
         backgroundColor: primaryColor,
         display: 'flex',
+        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         borderColor: primaryColor,
         borderWidth: 4,
         borderRadius: 17,
         zIndex: -1,
-        right: 12
+        right: 10
+    },
+    manageButtonContainer:{
+        width: 110,
+        height: 37,
+        backgroundColor: "white",
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderColor: primaryColor,
+        borderWidth: 1,
+        borderRadius: 17,
+        marginLeft: 10,
+        marginTop: 3,
+    },
+    manageButtonText:{
+        color: primaryColor,
+        fontWeight: "600"
     },
     trashContainer:{
         display: "flex",

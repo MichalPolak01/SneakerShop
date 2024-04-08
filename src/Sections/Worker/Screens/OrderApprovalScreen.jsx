@@ -51,6 +51,7 @@ function CartItem({ product }) {
                 <Text style={styles.nameProductText}>{product.name}</Text>
                 <View style={styles.sizeContainer}>
                     <Text style={styles.sizeText}>Rozmiar</Text>
+                    <Text style={{...styles.sizeText, fontWeight: "bold"}}>  41</Text>
                 </View>
                 <View style={styles.priceContainer}>
                     <Text style={styles.payForCartText}>{product.price.toFixed(2)} zł</Text>

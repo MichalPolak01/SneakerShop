@@ -8,17 +8,19 @@ export default function BottomNavigationPanel() {
     const route = useRoute();
 
     const isOrderApprovalScreen = route.name === 'OrderApproval';
+    const isProductManagementScreen = route.name === 'ProductManagement';
+    const isWorkerScreen = isOrderApprovalScreen || isProductManagementScreen;
 
     return (
         <View style={styles.body}>
             <View style={styles.mainContainer}>
-            {isOrderApprovalScreen && (
+            { isWorkerScreen && (
                 <>
                 <TouchableOpacity>
                     <Image style={styles.IconsSize} source={require('../../../../assets/Images/Worker/AddProductIcon.png')} />
                 </TouchableOpacity>
                 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('ProductManagement')}>
                     <Image style={styles.IconsSize} source={require('../../../../assets/Images/Worker/EditProductIcon.png')} />
                 </TouchableOpacity>
 
@@ -32,7 +34,7 @@ export default function BottomNavigationPanel() {
                 </>
             )} 
             
-            {!isOrderApprovalScreen && ( 
+            {!isWorkerScreen && ( 
                 <>
                 <TouchableOpacity onPress={() => navigation.navigate('MainMenu')}>
                     <Image style={styles.IconsSize} source={require('../../../../assets/Images/Menu/HomeIcon.png')} />

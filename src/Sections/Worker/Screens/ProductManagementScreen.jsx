@@ -1,27 +1,22 @@
 import React, { useState } from 'react'
 import { View, Text, Image, TouchableOpacity, ScrollView, KeyboardAvoidingView, ToastAndroid, Button } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
-import { styles } from '../Styles/ShoppingCartScreenStyle';
+import { styles } from '../Styles/ProductManagementScreenStyle';
 import TopNavigationPanel from '../../Navigation/Panels/TopNavigationPanel';
 import BottomNavigationPanel from '../../Navigation/Panels/BottomNavigationPanel';
-import { CartList } from '../Models/Product';
+import { CartList } from '../../User/Models/Product';
 
-export default function ShoppingCartScreen() {
+export default function ProductManagementScreen() {
     const navigation = useNavigation();
 
     return (
         <View style={styles.body}>
             <TopNavigationPanel/>
             <ScrollView contentContainerStyle={styles.mainContainer}>
-            <View>
+            <View style={{marginBottom: 20}}>
                 {CartList.map((product) => (<CartItem key={product.id} product={product} />))}
             </View>      
             </ScrollView>
-            
-            <TouchableOpacity style={styles.payForCartButton}>
-                 <Image style={styles.cashImage} source={require('../../../../assets/Images/Menu/CashIcon.png')} />
-                 <Text style={styles.payForCartText}>{SumCart(CartList)} zł</Text>
-            </TouchableOpacity>
             <BottomNavigationPanel/>
         </View>
     )
@@ -40,7 +35,12 @@ function CartItem({ product }) {
                             <Text style={{...styles.sizeText, fontWeight:'bold', fontSize: 21}}>  41</Text>
                         </View>
                         <View style={styles.priceContainer}>
-                            <Text style={{ ...styles.payForCartText, fontSize: 20}}>{product.price} zł</Text>
+                            <TouchableOpacity style={styles.manageButtonContainer}>
+                            <Text style={styles.manageButtonText}>Dodaj</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.manageButtonContainer}>
+                                <Text style={styles.manageButtonText}>Usuń</Text>
+                            </TouchableOpacity>
                         </View>
                     </View>
                     <TouchableOpacity style={styles.trashContainer} >
