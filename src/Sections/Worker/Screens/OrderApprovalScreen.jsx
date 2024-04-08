@@ -13,8 +13,8 @@ export default function OrderApprovalScreen() {
         <View style={styles.body}>
             <TopNavigationPanel/>
             <ScrollView contentContainerStyle={styles.mainContainer}>
-                {ShopList.map((set, index) => ( // Added 'index' as a parameter
-                    <SetItem key={index} products={set.products} /> // Changed key to use 'index'
+                {ShopList.map((set, index) => ( 
+                    <SetItem key={index} products={set.products} />
                 ))}
             </ScrollView>
             <BottomNavigationPanel/>
@@ -26,13 +26,13 @@ function SetItem({ products }) {
     return (
         <View style={styles.setContainer}>
             <View style={{marginTop: 25}}>
-                {products.map((product, index) => ( // Added 'index' as a parameter
-                    <CartItem key={index} product={product} /> // Changed key to use 'index'
+                {products.map((product, index) => ( 
+                    <CartItem key={index} product={product} /> 
                 ))}
             </View>
-            <TouchableOpacity style={styles.shipButton}>
-                 <Image style={styles.cashImage} source={require('../../../../assets/Images/Worker/AcceptShipIcon.png')} />
-                 <Text style={styles.payForCartText}> Shipped</Text>
+            <TouchableOpacity style={styles.acceptButton}>
+                 <Image style={styles.acceptImage} source={require('../../../../assets/Images/Worker/AcceptShipIcon.png')} />
+                 <Text style={styles.acceptText}> Shipped</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.trashContainer}>
                 <Image style={styles.trashIcon} source={require('../../../../assets/Images/Menu/TrashIcon.png')} />
@@ -54,7 +54,7 @@ function CartItem({ product }) {
                     <Text style={{...styles.sizeText, fontWeight: "bold"}}>  41</Text>
                 </View>
                 <View style={styles.priceContainer}>
-                    <Text style={styles.payForCartText}>{product.price.toFixed(2)} zł</Text>
+                    <Text style={styles.acceptText}>{product.price.toFixed(2)} zł</Text>
                 </View>
             </View>
         </View>

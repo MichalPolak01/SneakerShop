@@ -15,29 +15,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         width: 411, // Później do zmiany bo belka się buguje
     },
-    payForCartButton:{
-        backgroundColor: primaryColor,
-        flexDirection: "row",
-        width: 250,
-        height: 65,
-        borderRadius: 10,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: 20,
-        marginTop: 20,
-    },
-    payForCartText:{
-        color: "white",
-        fontSize: 28,
-        fontWeight: "700"
-    },
-    cashImage:{
-        width: 45,
-        height: 45,
-        marginRight: 20,
-    },
-    cartProduct:{
+    product:{
         display: "flex",
         flexDirection: "row",
         height: 130,

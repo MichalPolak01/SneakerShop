@@ -14,11 +14,6 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         width: 411 // Później do zmiany bo belka się buguje
     },
-    sectionContainer:{
-        height: 300,
-        width: '90%',
-        backgroundColor: 'grey',
-    },
     titleText:{
         color: primaryColor,
         fontWeight: 'bold',

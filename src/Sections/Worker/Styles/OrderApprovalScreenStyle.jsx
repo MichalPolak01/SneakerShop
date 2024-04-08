@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
         marginTop: 6,
         marginBottom: 6,
     },
-    shipButton:{
+    acceptButton:{
         backgroundColor: primaryColor,
         flexDirection: "row",
         width: 300,
@@ -38,12 +38,12 @@ export const styles = StyleSheet.create({
         marginBottom: 20,
         marginTop: 20,
     },
-    payForCartText:{
+    acceptText:{
         color: "white",
         fontSize: 28,
         fontWeight: "700"
     },
-    cashImage:{
+    acceptImage:{
         width: 45,
         height: 45,
         marginRight: 20,

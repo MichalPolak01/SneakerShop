@@ -51,8 +51,8 @@ function CartItem({ product }) {
 }
 
 function SumCart(CartList){
-    let sum = 0; // Initialize sum
-    for(let i=0 ; i< CartList.length; i++){ // Corrected typo and loop condition
+    let sum = 0;
+    for(let i=0 ; i< CartList.length; i++){
         sum += CartList[i].price;
     }
     return sum;

@@ -24,7 +24,7 @@ export default function ProductManagementScreen() {
 
 function CartItem({ product }) {
     return (
-        <View style={styles.cartProduct}>
+        <View style={styles.product}>
                     <View style={styles.productImageContainer}>
                         <Image style={styles.productImage} source={product.image} />
                     </View>
@@ -58,12 +58,4 @@ function CartItem({ product }) {
                     </TouchableOpacity>
         </View>
     );
-}
-
-function SumCart(CartList){
-    let sum = 0; // Initialize sum
-    for(let i=0 ; i< CartList.length; i++){ // Corrected typo and loop condition
-        sum += CartList[i].price;
-    }
-    return sum;
 }
