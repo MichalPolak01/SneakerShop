@@ -112,7 +112,7 @@ export default function LoginScreen() {
                     <TouchableOpacity onPress={() => navigation.navigate('MainMenu')}>
                         <Text style={[styles.buttonText, {textAlign: 'center'}]}>User</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('OrderApproval')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('AddProduct')}>
                         <Text style={[styles.buttonText, {textAlign: 'center'}]}>Worker</Text>
                     </TouchableOpacity>
                 </View>
