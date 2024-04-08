@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { View, Text, Image, TouchableOpacity, ScrollView, KeyboardAvoidingView, ToastAndroid, Button } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../Styles/ShoppingCartScreenStyle';
-import TopNavigationPanel from '../Navigation/TopNavigationPanel';
-import BottomNavigationPanel from '../Navigation/BottomNavigationPanel';
+import TopNavigationPanel from '../../Navigation/Panels/TopNavigationPanel';
+import BottomNavigationPanel from '../../Navigation/Panels/BottomNavigationPanel';
 import { Product, CartList } from '../Models/Product';
 
 export default function ShoppingCartScreen() {

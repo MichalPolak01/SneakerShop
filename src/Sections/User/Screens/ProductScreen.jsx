@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { styles } from '../Styles/ProductScreenStyle';
-import TopNavigationPanel from '../Navigation/TopNavigationPanel';
+import TopNavigationPanel from '../../Navigation/Panels/TopNavigationPanel';
 import { ProductsList } from '../Models/Product';
 
 export default function ProductScreen() {

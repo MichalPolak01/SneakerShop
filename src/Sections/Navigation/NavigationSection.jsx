@@ -1,19 +1,22 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import LoginScreen from '../Login/Screens/LoginScreen';
-import ProductScreen from './Screens/ProductScreen';
-import MainMenuScreen from '../Menu/Screens/MainMenuScreen';
-import ShoppingCartScreen from '../Menu/Screens/ShoppingCartScreen';
+import SignUpScreen from '../Login/Screens/SignUpScreen';
+import ProductScreen from '../User/Screens/ProductScreen';
+import MainMenuScreen from '../User/Screens/MainMenuScreen';
+import ShoppingCartScreen from '../User/Screens/ShoppingCartScreen';
 
 const Stack = createNativeStackNavigator();
 
-export default function MenuSection() {
+export default function NavigationSection() {
     return (
-        <Stack.Navigator initialRouteName='Product' screenOptions={{headerShown: false}}>
+        <Stack.Navigator initialRouteName='Login' screenOptions={{headerShown: false}}>
             <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name='MainMenu' component={MainMenuScreen} />
+            <Stack.Screen name='SignUp' component={SignUpScreen} />
             <Stack.Screen name='Product' component={ProductScreen} />
+            <Stack.Screen name='MainMenu' component={MainMenuScreen} />
             <Stack.Screen name='ShoppingCart' component={ShoppingCartScreen} />
         </Stack.Navigator>
     );
