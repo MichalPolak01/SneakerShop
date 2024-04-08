@@ -26,4 +26,23 @@ const CartList = [
   new Product(4, "Air Jordan 4", "Buty męskie", require('../../../../assets/Images/Login/Icon.png'), 299.99, 'Air Jordan 1 - ikona nie tylko sportowej mody, lecz również kultury ulicznej. Te legendarnie stylowe buty, zaprojektowane przez Michaela Jordana i Petera Moore\'a w 1985 roku, podbiły serca fanów na całym świecie swoim charakterystycznym designem oraz doskonałym komfortem noszenia. Wykonane z wysokiej jakości materiałów, Air Jordan 1 to nie tylko obuwie, to symbol niepowtarzalnego stylu i nieustającej pasji do sportu. Dostępne w różnorodnych kolorach i edycjach, te buty są niezrównane pod względem jakości i prestiżu. Zainwestuj w legendę i dołącz do historii ulicznej mody z Air Jordan 1.'),
 ];
 
-export { Product, ProductsList, CartList };
+const ShopList = [
+  { 
+      id: 1,
+      products: [
+          new Product(1, "Air Jordan 1", "Buty męskie", require('../../../../assets/Images/Login/Icon.png'), 499.99, 'Air Jordan 1 opis'),
+          new Product(2, "Inny produkt", "Kategoria", require('../../../../assets/Images/Login/Icon.png'), 99.99, 'Inny produkt opis'),
+          new Product(2, "Inny produkt", "Kategoria", require('../../../../assets/Images/Login/Icon.png'), 99.99, 'Inny produkt opis')  
+      ]
+  },
+  { 
+      id: 2,
+      products: [
+          new Product(1, "Air Jordan 1", "Buty męskie", require('../../../../assets/Images/Login/Icon.png'), 499.99, 'Air Jordan 1 opis'),
+          new Product(2, "Inny produkt", "Kategoria", require('../../../../assets/Images/Login/Icon.png'), 99.99, 'Inny produkt opis'),
+          new Product(2, "Inny produkt", "Kategoria", require('../../../../assets/Images/Login/Icon.png'), 99.99, 'Inny produkt opis')  
+      ]
+  },
+];
+
+export { Product, ProductsList, CartList, ShopList };

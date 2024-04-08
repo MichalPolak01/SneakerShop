@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { styles } from '../Styles/MainMenuScreenStyle';
 import TopNavigationPanel from '../../Navigation/Panels/TopNavigationPanel';
 import BottomNavigationPanel from '../../Navigation/Panels/BottomNavigationPanel';
-import { Product, ProductsList } from '../Models/Product';
+import { ProductsList } from '../Models/Product';
 
 export default function MainMenuScreen() {
     const navigation = useNavigation();
