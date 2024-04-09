@@ -17,7 +17,7 @@ export default function BottomNavigationUserPanel() {
                     <Image style={styles.IconsSize} source={require('../../../../../assets/Images/Menu/ShopingCartMenuIcon.png')} />
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+                <TouchableOpacity onPress={() => navigation.navigate('AccountSettings')}>
                     <Image style={styles.IconsSize} source={require('../../../../../assets/Images/Menu/PersonIcon.png')} />
                 </TouchableOpacity>
             </View>

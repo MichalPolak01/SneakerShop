@@ -10,6 +10,7 @@ import ShoppingCartScreen from '../User/Screens/ShoppingCartScreen';
 import OrderApprovalScreen from '../Worker/Screens/OrderApprovalScreen';
 import ProductManagementScreen from '../Worker/Screens/ProductManagementScreen';
 import AddProductScreen from '../Worker/Screens/AddProductScreen';
+import AccountSettingsScreen from '../User/Screens/AccountSettingsScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -25,6 +26,7 @@ export default function NavigationSection() {
             <Stack.Screen name='OrderApproval' component={OrderApprovalScreen} />
             <Stack.Screen name='ProductManagement' component={ProductManagementScreen} />
             <Stack.Screen name='AddProduct' component={AddProductScreen} />
+            <Stack.Screen name='AccountSettings' component={AccountSettingsScreen} />
         </Stack.Navigator>
     );
 }
