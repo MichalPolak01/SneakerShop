@@ -1,13 +1,11 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import { styles } from '../Styles/OrderApprovalScreenStyle';
-import TopNavigationPanel from '../../Navigation/Panels/TopNavigationPanel';
-import BottomNavigationPanel from '../../Navigation/Panels/BottomNavigationPanel';
+import TopNavigationPanel from '../../Navigation/Panels/Top/TopNavigationCleanPanel';
+import BottomNavigationPanel from '../../Navigation/Panels/Bottom/BottomNavigationWorkerPanel';
 import { ShopList } from '../../User/Models/Product';
 
 export default function OrderApprovalScreen() {
-    const navigation = useNavigation();
 
     return (
         <View style={styles.body}>

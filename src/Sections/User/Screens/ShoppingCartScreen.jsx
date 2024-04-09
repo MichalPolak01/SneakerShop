@@ -1,13 +1,10 @@
-import React, { useState } from 'react'
-import { View, Text, Image, TouchableOpacity, ScrollView, KeyboardAvoidingView, ToastAndroid, Button } from 'react-native'
-import { useNavigation } from '@react-navigation/native';
+import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native'
 import { styles } from '../Styles/ShoppingCartScreenStyle';
-import TopNavigationPanel from '../../Navigation/Panels/TopNavigationPanel';
-import BottomNavigationPanel from '../../Navigation/Panels/BottomNavigationPanel';
+import TopNavigationPanel from '../../Navigation/Panels/Top/TopNavigationCleanPanel';
+import BottomNavigationPanel from '../../Navigation/Panels/Bottom/BottomNavigationUserPanel';
 import { CartList } from '../Models/Product';
 
 export default function ShoppingCartScreen() {
-    const navigation = useNavigation();
 
     return (
         <View style={styles.body}>

@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, Image, TouchableOpacity, ScrollView, TextInput, Alert } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { View, Text, TouchableOpacity, ScrollView, TextInput } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { styles } from '../Styles/AddProductStyle';
-import TopNavigationPanel from '../../Navigation/Panels/TopNavigationPanel';
-import BottomNavigationPanel from '../../Navigation/Panels/BottomNavigationPanel';
+import TopNavigationPanel from '../../Navigation/Panels/Top/TopNavigationCleanPanel';
+import BottomNavigationPanel from '../../Navigation/Panels/Bottom/BottomNavigationWorkerPanel';
 
 export default function AddProductScreen() {
-    const navigation = useNavigation();
-
     const [name, setName] = useState('');
     const [brand, setBrand] = useState('');
     const [category, setCategory] = useState('');

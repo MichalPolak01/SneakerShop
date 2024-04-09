@@ -1,14 +1,11 @@
-import React, { useState } from 'react'
-import { View, Text, Image, TouchableOpacity, ScrollView, KeyboardAvoidingView, ToastAndroid, Button } from 'react-native'
+import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../Styles/MainMenuScreenStyle';
-import TopNavigationPanel from '../../Navigation/Panels/TopNavigationPanel';
-import BottomNavigationPanel from '../../Navigation/Panels/BottomNavigationPanel';
+import TopNavigationPanel from '../../Navigation/Panels/Top/TopNavigationMenuPanel';
+import BottomNavigationPanel from '../../Navigation/Panels/Bottom/BottomNavigationUserPanel';
 import { ProductsList } from '../Models/Product';
 
 export default function MainMenuScreen() {
-    const navigation = useNavigation();
-
     return (
         <View style={styles.body}>
             <TopNavigationPanel/>
