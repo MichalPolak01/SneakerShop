@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { styles } from '../../Styles/TopNavigationPanel';
 
-export default function TopNavigationPanel() {
+export default function TopNavigationPanel({ onPressFilter }) {
 
     return (
         <View style={styles.body}>
@@ -13,7 +13,7 @@ export default function TopNavigationPanel() {
 
                 <Image style={styles.nameImage} source={require('../../../../../assets/Images/Login/Name.png')} />
                 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={onPressFilter}>
                     <Text style={styles.navigateText}>Filtruj</Text>
                 </TouchableOpacity>
             </View>
