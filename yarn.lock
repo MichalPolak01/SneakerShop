@@ -1679,6 +1679,11 @@
     prompts "^2.4.2"
     semver "^7.5.2"
 
+"@react-native-community/hooks@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@react-native-community/hooks/-/hooks-3.0.0.tgz#af5f2ca32eea59b792ce9e3d9a4cf0354f9b195f"
+  integrity sha512-g2OyxXHfwIytXUJitBR6Z/ISoOfp0WKx5FOv+NqJ/CrWjRDcTw6zXE5I1C9axfuh30kJqzWchVfCDrkzZYTxqg==
+
 "@react-native/assets-registry@0.73.1":
   version "0.73.1"
   resolved "https://registry.npmjs.org/@react-native/assets-registry/-/assets-registry-0.73.1.tgz"
@@ -2776,6 +2781,11 @@ color@^4.2.3:
   dependencies:
     color-convert "^2.0.1"
     color-string "^1.9.0"
+
+colord@2.9.2:
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/colord/-/colord-2.9.2.tgz#25e2bacbbaa65991422c07ea209e2089428effb1"
+  integrity sha512-Uqbg+J445nc1TKn4FoDPS6ZZqAvEDnwrH42yo8B40JSOgSLxMZ/gt3h4nmCtPLQeXhjJJkqBx7SCY35WnIixaQ==
 
 colorette@^1.0.7:
   version "1.4.0"
@@ -5734,6 +5744,13 @@ react-native-screens@^3.29.0:
   dependencies:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
+
+react-native-shadow-2@^7.0.8:
+  version "7.0.8"
+  resolved "https://registry.yarnpkg.com/react-native-shadow-2/-/react-native-shadow-2-7.0.8.tgz#df365ba1d8d22b7c63f1afc66d75308c3d6af4e1"
+  integrity sha512-6QlmbJvHCmDGa85jwtfrVxhro1oGm/ezTlciom0A+i0UFAzxlvmRiMHyKXg1hEB2PQkKPoG6ZpANju4mpqPqGA==
+  dependencies:
+    colord "2.9.2"
 
 react-native-svg@^15.1.0:
   version "15.1.0"

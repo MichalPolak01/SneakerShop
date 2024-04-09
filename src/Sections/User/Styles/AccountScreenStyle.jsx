@@ -9,20 +9,23 @@ const purple = '#490e75';
 export const styles = StyleSheet.create({
     body: {
         backgroundColor: '#c3c3dc',
-        flex: 1, 
         alignItems: 'center',
+        flex: 1,
     },
 
     form: {
         width: width - 20,
+        marginTop: 15,
+        marginBottom: 5,
+        height: height -143,
     },
 
     card: {
         backgroundColor: '#fff',
-        height: height - 180,
-        width: width - 20,
-        marginVertical: 20,
-        borderRadius: 20
+        paddingBottom: 10,
+        width: width - 25,
+        borderRadius: 20,
+        flexGrow: 1,
     },
 
     header: {
@@ -46,10 +49,8 @@ export const styles = StyleSheet.create({
         flex: 1,
         objectFit: 'contain',
         alignSelf: 'center',
-        // marginRight: 10,
         marginVertical: 20,
         marginHorizontal: 10
-        // margin: 20
     },
 
     title: {
@@ -83,5 +84,5 @@ export const styles = StyleSheet.create({
         margin: 25,
         alignContent: 'center',
         justifyContent: 'center'
-    }
+    },
 });
