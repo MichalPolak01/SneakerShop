@@ -22,5 +22,16 @@ export const styles = StyleSheet.create({
     },
     markText: {
         color: 'red'
+    },
+    errorMessage: {
+        fontFamily: 'Mina-Bold',
+        fontSize: 14,
+        color: 'red',
+        // alignSelf: 'flex-start',
+        // marginLeft: '10%'
+    },
+    errorMessageBox: {
+        alignSelf: 'flex-start',
+        marginLeft: '10%'
     }
 });

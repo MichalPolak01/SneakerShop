@@ -9,9 +9,7 @@ import Animated, { FadeInUp, RotateInDownLeft } from 'react-native-reanimated';
 
 export default function SignUpScreen() {
     const navigation = useNavigation();
-    const [errors, setErrors] = useState({});
     const [personalDataForm, setPersonalDataForm] = useState(true);
-    // const [showAlert, setShowAlert] = useState(false);
     
     const [account, setAccount] = useState({
         name: '',
@@ -26,79 +24,67 @@ export default function SignUpScreen() {
         postalCode: '',
         country: ''
     });
-    
-    const [markError, setMarkError] = useState ({
-        name: false,
-        surname: false,
-        phone: false,
-        email: false,
-        password: false,
-        rePassword: false,
-        street: false,
-        streetSecondLine: false,
-        city: false,
-        postalCode: false,
-        country: false
+
+    const [errorMessage, setErrorMessage] = useState ({
+        name: '',
+        surname: '',
+        phone: '',
+        email: '',
+        password: '',
+        rePassword: '',
+        street: '',
+        streetSecondLine: '',
+        city: '',
+        postalCode: '',
+        country: ''
     });
     
-    const validatePersonalData = () => {
-        let newErrors = [];
-        let errorsMarks = {...markError};
+    const validatePersonalData = async () => {
+        let errorMessages = {...errorMessage};
 
         if (account.name.trim() === '') {
-            newErrors.push('First name is required!');
-            errorsMarks.name = true;
+            errorMessages.name = 'First name is required!';
         } else {
-            errorsMarks.name = false;
+            errorMessages.name = '';
         }
         if (account.surname.trim() === '') {
-            newErrors.push('Last name is required!');
-            errorsMarks.surname = true;
+            errorMessages.surname = 'Last name is required!';
         } else {
-            errorsMarks.surname = false;
+            errorMessages.surname = '';
         }
         if (account.phone.trim() === '') {
-            newErrors.push('Phone number is required!');
-            errorsMarks.phone = true;
+            errorMessages.phone = 'Phone number is required!';
         } else if (!isValidPhone(account.phone)) {
-            newErrors.push('Invalid phone number!');
-            errorsMarks.phone = true;
+            errorMessages.phone = 'Invalid phone number!';
         } else {
-            errorsMarks.phone = false;
+            errorMessages.phone = '';
         }
         if (account.email.trim() === '') {
-            newErrors.push('Email address is required!');
-            errorsMarks.email = true;
+            errorMessages.email = 'Email address is required!';
         } else if (!isValidEmail(account.email)) {
-            newErrors.push('Invalid email address!');
-            errorsMarks.email = true;
+            errorMessages.email = 'Invalid email address!';
         } else if (isEmailUsed(account.email)) {
-            newErrors.push('Account with this email address already exist!');
-            errorsMarks.email = true;
+            errorMessages.email = 'Account with this email address already exist!';
         } else {
-            errorsMarks.email = false;
+            errorMessages.email = '';
         }
         if (account.password.trim() === '') {
-            newErrors.push('Password is required!');
-            errorsMarks.password = true;
+            errorMessages.password = 'Password is required!';
         } else if (!isStrongPassword(account.password)) {
-            newErrors.push('Password must be at least 8 characters long and include one uppercase letter, one lowercase letter, and one number!');
-            errorsMarks.password = true;
+            errorMessages.password = 'Password must be at least 8 characters long and include one uppercase letter, one lowercase letter, and one number!';
         } else {
-            errorsMarks.password = false;
+            errorMessages.password = '';
         }
         if (account.rePassword.trim() === '') {
-            newErrors.push('Re-password is required!');
-            errorsMarks.rePassword = true;
+            errorMessages.rePassword = 'Re-password is required!';
         } else if (account.password !== account.rePassword) {
-            newErrors.push('Passwords must be the same!');
-            errorsMarks.rePassword = true;
+            errorMessages.rePassword = 'Passwords must be the same!';
         } else {
-            errorsMarks.rePassword = false;
+            errorMessages.rePassword = '';
         }
 
-        setMarkError(errorsMarks);
-        return newErrors;
+        setErrorMessage(errorMessages);
+        return errorMessages;
     };
 
     const isValidPhone = (phone) => {
@@ -122,46 +108,39 @@ export default function SignUpScreen() {
         return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(password);
     }
 
-    const validateDeliveryData = () => {
-        let newErrors = [];
-        let errorsMarks = {...markError};
+    const validateDeliveryData = async () => {
+        let errorMessages = {...errorMessage};
 
         if (account.street.trim() === '') {
-            newErrors.push('Street address is required!');
-            errorsMarks.street = true;
+            errorMessages.street = 'Street address is required!';
         } else {
-            errorsMarks.street = false;
+            errorMessages.street = '';
         }
         if (account.streetSecondLine.trim() === '') {
-            newErrors.push('Street address is required!');
-            errorsMarks.streetSecondLine = true;
+            errorMessages.streetSecondLine = 'Street address is required!';
         } else {
-            errorsMarks.streetSecondLine = false;
+            errorMessages.streetSecondLine = '';
         }
         if (account.city.trim() === '') {
-            newErrors.push('City is required!');
-            errorsMarks.city = true;
+            errorMessages.city = 'City is required!';
         } else {
-            errorsMarks.city = false;
+            errorMessages.city = '';
         }
         if (account.postalCode.trim() === '') {
-            newErrors.push('Postal code is required!');
-            errorsMarks.postalCode = true;
+            errorMessages.postalCode = 'Postal code is required!';
         } else if (!isValidPostalCode(account.postalCode)) {
-            newErrors.push('Invalid postal code!');
-            errorsMarks.postalCode = true;
+            errorMessages.postalCode = 'Invalid postal code!';
         } else {
-            errorsMarks.postalCode = false;
+            errorMessages.postalCode = '';
         }
         if (account.country.trim() === '') {
-            newErrors.push('Country is required!');
-            errorsMarks.country = true;
+            errorMessages.country = 'Country is required!';
         } else {
-            errorsMarks.country = false;
+            errorMessages.country = '';
         }
 
-        setMarkError(errorsMarks);
-        return newErrors;
+        setErrorMessage(errorMessages);
+        return errorMessages;
     }
 
     const isValidPostalCode = (postalCode) => {
@@ -170,33 +149,27 @@ export default function SignUpScreen() {
         return postalCodeRegex.test(postalCode);
     };
 
-    const handleCheckPersonalData = () => {
-        console.log(account);
+    const handleCheckPersonalData = async () => {
+        console.log(account);   /* DO USUNIĘCIA */
+       
+        const errorMessages = await validatePersonalData();
 
-        const newErrors = validatePersonalData();
-        setErrors(newErrors);
-
-        if (Object.keys(newErrors).length > 0) {
-            newErrors.forEach(error => {
-                // console.log(error);
-                ToastAndroid.showWithGravity(error, ToastAndroid.SHORT, ToastAndroid.CENTER);
-            });
+        if ( errorMessages.name !== '' || errorMessages.surname !== '' || errorMessages.phone !== '' ||
+            errorMessages.email !== '' || errorMessages.password !== '' || errorMessages.rePassword !== '' ) {
+            ToastAndroid.showWithGravity('Wrong Input Data!', ToastAndroid.SHORT, ToastAndroid.CENTER);
             return;
         }
+
         setPersonalDataForm(false);
     }
 
-    const handleRegister = () => {
-        console.log(account);
+    const handleRegister = async () => {
+        console.log(account);   /* DO USUNIĘCIA */
 
-        const newErrors = validatePersonalData().concat(validateDeliveryData());
-        setErrors(newErrors);
+        const errorMessages = await validateDeliveryData();
 
-        if (Object.keys(newErrors).length > 0) {
-            newErrors.forEach(error => {
-                // console.log(error);
-                ToastAndroid.showWithGravity(error, ToastAndroid.SHORT, ToastAndroid.CENTER);
-            });
+        if (Object.values(errorMessages).some(value => value !== '')) {
+            ToastAndroid.showWithGravity('Wrong Input Data!', ToastAndroid.SHORT, ToastAndroid.CENTER);
             return;
         }
 
@@ -231,7 +204,6 @@ export default function SignUpScreen() {
             <Image style={styles.background} source={require('../../../../assets/Images/Login/SignUpBackground.png')} />
 
             <View style={styles.header}>
-            
                 <View style={styles.iconBox}>
                 <Animated.View style={{transform: [{ rotateZ: '-30deg' }]}}>
                        <Animated.Image entering={RotateInDownLeft.delay(200).duration(1000).springify().damping(3)} style={styles.icon} source={require('../../../../assets/Images/Login/Icon.png')} /> 
@@ -244,16 +216,15 @@ export default function SignUpScreen() {
                 <Animated.Text entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.title}>{personalDataForm? 'Register' : 'Shipping details'}</Animated.Text>
             </View>
 
-
-            <KeyboardAvoidingView behavior='height' keyboardVerticalOffset={-300} style={styles.form}>
+            <KeyboardAvoidingView behavior='point' style={styles.form}>
                 { personalDataForm ? 
                     <>
-                        <LoginFormInput iconName='person-outline' iconSize={30} text='Name' value={account.name} color={markError.name} handleOnChange={(value) => handleChange('name', value)} />
-                        <LoginFormInput iconName='person-outline' iconSize={30} text='Surname' value={account.surname} color={markError.surname} handleOnChange={(value) => handleChange('surname', value)} />
-                        <LoginFormInput iconName='call-outline' iconSize={30} text='Phone' value={account.phone} color={markError.phone} handleOnChange={(value) => handleChange('phone', value)} />
-                        <LoginFormInput iconName='mail-outline' iconSize={30} text='E-mail' value={account.email} color={markError.email} handleOnChange={(value) => handleChange('email', value)} />
-                        <LoginFormInput iconName='lock-closed-outline' iconSize={30} text='Password' value={account.password} color={markError.password} secue={true} handleOnChange={(value) => handleChange('password', value)} />
-                        <LoginFormInput iconName='lock-closed-outline' iconSize={30} text='Re-password' value={account.rePassword} color={markError.rePassword} secue={true} handleOnChange={(value) => handleChange('rePassword', value)} />
+                        <LoginFormInput iconName='person-outline' iconSize={30} text='Name' value={account.name} handleOnChange={(value) => handleChange('name', value)} errorMessage={errorMessage.name}/>
+                        <LoginFormInput iconName='person-outline' iconSize={30} text='Surname' value={account.surname} handleOnChange={(value) => handleChange('surname', value)} errorMessage={errorMessage.surname} />
+                        <LoginFormInput iconName='call-outline' iconSize={30} text='Phone' value={account.phone} handleOnChange={(value) => handleChange('phone', value)} errorMessage={errorMessage.phone} />
+                        <LoginFormInput iconName='mail-outline' iconSize={30} text='E-mail' value={account.email} handleOnChange={(value) => handleChange('email', value)} errorMessage={errorMessage.email} />
+                        <LoginFormInput iconName='lock-closed-outline' iconSize={30} text='Password' value={account.password} secue={true} handleOnChange={(value) => handleChange('password', value)} errorMessage={errorMessage.password} />
+                        <LoginFormInput iconName='lock-closed-outline' iconSize={30} text='Re-password' value={account.rePassword} secue={true} handleOnChange={(value) => handleChange('rePassword', value)} errorMessage={errorMessage.rePassword} />
 
                         <Animated.View entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.buttonBox}>
                             
@@ -273,11 +244,11 @@ export default function SignUpScreen() {
                 :
                     <>
                         <>
-                            <LoginFormInput iconName='navigate-outline' iconSize={30} text='Street Address' value={account.street} color={markError.street} handleOnChange={(value) => handleChange('street', value)} />
-                            <LoginFormInput iconName='locate-outline' iconSize={30} text='Street Address Line 2' value={account.streetSecondLine} color={markError.streetSecondLine} handleOnChange={(value) => handleChange('streetSecondLine', value)} />
-                            <LoginFormInput iconName='navigate-outline' iconSize={30} text='City' value={account.city} color={markError.city} handleOnChange={(value) => handleChange('city', value)} />
-                            <LoginFormInput iconName='locate-outline' iconSize={30} text='Postal / Zpi Code' value={account.postalCode} color={markError.postalCode} handleOnChange={(value) => handleChange('postalCode', value)} />
-                            <LoginFormInput iconName='navigate-outline' iconSize={30} text='Country' value={account.country} color={markError.country} handleOnChange={(value) => handleChange('country', value)} />
+                            <LoginFormInput iconName='navigate-outline' iconSize={30} text='Street Address' value={account.street} handleOnChange={(value) => handleChange('street', value)} errorMessage={errorMessage.street} />
+                            <LoginFormInput iconName='locate-outline' iconSize={30} text='Street Address Line 2' value={account.streetSecondLine} handleOnChange={(value) => handleChange('streetSecondLine', value)} errorMessage={errorMessage.streetSecondLine} />
+                            <LoginFormInput iconName='navigate-outline' iconSize={30} text='City' value={account.city} handleOnChange={(value) => handleChange('city', value)} errorMessage={errorMessage.city} />
+                            <LoginFormInput iconName='locate-outline' iconSize={30} text='Postal / Zpi Code' value={account.postalCode} handleOnChange={(value) => handleChange('postalCode', value)} errorMessage={errorMessage.postalCode} />
+                            <LoginFormInput iconName='navigate-outline' iconSize={30} text='Country' value={account.country} handleOnChange={(value) => handleChange('country', value)} errorMessage={errorMessage.country} />
                         </>
                         <View style={styles.buttonNext2Button}>
                             <Animated.View entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.buttonBoxSmall}>

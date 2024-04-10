@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, Image, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, ScrollView, ToastAndroid } from 'react-native'
+import { View, Text, Image, TouchableOpacity, KeyboardAvoidingView, ScrollView, ToastAndroid } from 'react-native'
 import LoginFormInput from '../Components/LoginFormInput';
 import { styles } from '../Styles/loginStyles'
 import { useNavigation } from '@react-navigation/native';
@@ -7,40 +7,35 @@ import Animated, { FadeInUp, RotateInDownLeft } from 'react-native-reanimated';
 
 export default function LoginScreen() {
     const navigation = useNavigation();
-    const [errors, setErrors] = useState({});
 
     const [login, setLogin] = useState({
         email: '',
         password: ''
     });
 
-    const [markError, setMarkError] = useState({
-        email: false,
-        password: false
+    const [errorMessage, setErrorMessage] = useState ({
+        email: '',
+        password: ''
     });
 
-    const validation = () => {
-        let newErrors = [];
-        let errorsMarks = {...markError};
+    const validation = async () => {
+        let errorMessages = {...errorMessage};
 
         if (login.email.trim() === '') {
-            newErrors.push('Email address is required!');
-            errorsMarks.email = true;
+            errorMessages.email = 'Email address is required!';
         } else if (!isEmailAvailable(login.email)) {
-            newErrors.push('Account with given email address doesn\'t exist!');
-            errorsMarks.email = true;
+            errorMessages.email = 'Account with given email address doesn\'t exist!';
         } else {
-            errorsMarks.email = false;
+            errorMessages.email = '';
         }
         if (login.password.trim() === '') {
-            newErrors.push('Password is required!');
-            errorsMarks.password = true;
+            errorMessages.password = 'Password is required!';
         } else {
-            errorsMarks.password = false;
+            errorMessages.password = '';
         }
 
-        setMarkError(errorsMarks);
-        return newErrors;
+        setErrorMessage(errorMessages);
+        return errorMessages;
     }
 
     const isEmailAvailable = (email) => {
@@ -48,17 +43,13 @@ export default function LoginScreen() {
         return true;
     }
 
-    const handleLogin = () => {
-        console.log(login);
+    const handleLogin = async () => {
+        console.log(login); /* DO USUNIĘCIA */
 
-        const newErrors = validation();
-        setErrors(newErrors);
+        const errorMessages = await validation();
 
-        if (Object.keys(newErrors).length > 0) {
-            newErrors.forEach(error => {
-                // console.log(error);
-                ToastAndroid.showWithGravity(error, ToastAndroid.SHORT, ToastAndroid.CENTER);
-            });
+        if ( errorMessages.email !== '' || errorMessages.password !== '' ) {
+            ToastAndroid.showWithGravity('Wrong Input Data!', ToastAndroid.SHORT, ToastAndroid.CENTER);
             return;
         }
 
@@ -91,8 +82,8 @@ export default function LoginScreen() {
             </View>
 
             <KeyboardAvoidingView behavior='height' keyboardVerticalOffset={-100} style={styles.form}>
-                <LoginFormInput iconName='mail-outline' iconSize={30} text='E-mail' value={login.email} color={markError.email} handleOnChange={(value) => handleChange('email', value)}/>
-                <LoginFormInput iconName='lock-closed-outline' iconSize={30} text='Password' value={login.password} color={markError.password} secue={true} handleOnChange={(value) => handleChange('password', value)}/>
+                <LoginFormInput iconName='mail-outline' iconSize={30} text='E-mail' value={login.email} handleOnChange={(value) => handleChange('email', value)} errorMessage={errorMessage.email} />
+                <LoginFormInput iconName='lock-closed-outline' iconSize={30} text='Password' value={login.password} secue={true} handleOnChange={(value) => handleChange('password', value)} errorMessage={errorMessage.password} />
                 
                 <Animated.View entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.buttonBox}>
                     <TouchableOpacity onPress={() => handleLogin()} style={styles.button}>
@@ -106,6 +97,7 @@ export default function LoginScreen() {
                         <Text style={styles.signUpLink}>SignUp</Text>
                     </TouchableOpacity>
                 </Animated.View>
+            
 
                 {/* Developer login  */}
                 <View style={{ display: "flex", alignItems: "center", backgroundColor: "#411c5d", width: 300, borderRadius: 20 }}>
@@ -116,9 +108,7 @@ export default function LoginScreen() {
                         <Text style={[styles.buttonText, {textAlign: 'center'}]}>Worker</Text>
                     </TouchableOpacity>
                 </View>
-
-
-            </KeyboardAvoidingView>
+                </KeyboardAvoidingView>
         </ScrollView>
     )
 }
