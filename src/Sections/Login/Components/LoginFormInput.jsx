@@ -1,4 +1,4 @@
-import { View, TextInput } from 'react-native';
+import { TextInput } from 'react-native';
 import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { styles } from '../Styles/loginFormInputStyles';

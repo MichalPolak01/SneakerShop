@@ -27,8 +27,6 @@ export const styles = StyleSheet.create({
         fontFamily: 'Mina-Bold',
         fontSize: 14,
         color: 'red',
-        // alignSelf: 'flex-start',
-        // marginLeft: '10%'
     },
     errorMessageBox: {
         alignSelf: 'flex-start',

@@ -75,6 +75,10 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 10
     },
 
+    inputError: {
+        color: 'red'
+    },
+
     button: {
         width: width * 0.7,
         height: 50,
@@ -85,4 +89,14 @@ export const styles = StyleSheet.create({
         alignContent: 'center',
         justifyContent: 'center'
     },
+
+    errorMessageBox: {
+        paddingHorizontal: 20,
+        fontFamily: 'Mina-Regular'
+    },
+
+    errorMessage: {
+        fontFamily: 'Mina-Regular',
+        color: 'red'
+    }
 });
