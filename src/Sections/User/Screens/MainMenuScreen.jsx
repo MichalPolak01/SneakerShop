@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native'
+import { View, Text, Image, TouchableOpacity, ScrollView, TextInput } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../Styles/MainMenuScreenStyle';
 import TopNavigationPanel from '../../Navigation/Panels/Top/TopNavigationMenuPanel';
@@ -93,15 +93,104 @@ function ProductItem({ product }) {
 }
 
 function FilterSection({ toggleFilter }) {
+    const [genderFilters, setGenderFilters] = useState({
+        male: false,
+        female: false,
+        unisex: false
+    });
+
+    const [priceFilters, setPriceFilters] = useState({
+        from: '',
+        to: ''
+    });
+
+    const [sizeFilters, setSizeFilters] = useState({
+        from: '',
+        to: ''
+    });
+    
     return (
         <View style={styles.backgroundFilter}>
             <View style={styles.filterContainer}>
                 <TouchableOpacity style={styles.closeImage} onPress={toggleFilter}>
                     <Image style={styles.closeImage} source={require('../../../../assets/Images/Menu/CloseIcon.png')} />
                 </TouchableOpacity>
+                
                 <ScrollView contentContainerStyle={styles.filterContentContainer}>
-                    <Text></Text>
+
+                    <View style={styles.inputSection}>
+                        <Text style={styles.titleText}>Nazwa</Text>
+                        <View style={styles.inputName}>
+                                    <TextInput
+                                    style={styles.inputText}
+                                    />
+                        </View>
+                    </View>        
+
+                    <View style={styles.borderFilder}></View>
+                
+                    <View style={styles.checkboxContainer}>
+                    <Text style={styles.titleText}>Płeć</Text>
+                        <TouchableOpacity style={[styles.checkbox, genderFilters.male && styles.checked]}>
+                            <View style={styles.checkboxIcon}></View>
+                            <Text style={styles.checkboxText}>Mężczyźni</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={[styles.checkbox, genderFilters.male && styles.checked]}>
+                            <View style={styles.checkboxIcon}></View>
+                            <Text style={styles.checkboxText}>Kobiety</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={[styles.checkbox, genderFilters.male && styles.checked]}>
+                            <View style={styles.checkboxIcon}></View>
+                            <Text style={styles.checkboxText}>Uniseks</Text>
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={styles.borderFilder}></View>
+
+                    <View style={styles.inputSection}>
+                    <Text style={styles.titleText}>Cena</Text>
+                        <View style={styles.inputContainers}>
+                            <View style={styles.input}>
+                                <TextInput
+                                    style={styles.inputText}
+                                    placeholder="od"
+                                    keyboardType="numeric"
+                                />
+                            </View>
+                            <View style={styles.input}>
+                                <TextInput
+                                    style={styles.inputText}
+                                    placeholder="do"
+                                    keyboardType="numeric"
+                                />
+                            </View>
+                        </View>
+                    </View>
+
+                    <View style={styles.borderFilder}></View>
+
+                    <View style={styles.inputSection}>
+                    <Text style={styles.titleText}>Rozmiar</Text>
+                        <View style={styles.inputContainers}>
+                            <View style={styles.input}>
+                                <TextInput
+                                style={styles.inputText}
+                                placeholder="od"
+                                keyboardType="numeric"
+                                />
+                            </View>
+                            <View style={styles.input}>
+                                <TextInput
+                                style={styles.inputText}
+                                placeholder="do"
+                                keyboardType="numeric"
+                                />
+                            </View>
+                        </View>
+                    </View>
+                    
                 </ScrollView>
+                
                 <TouchableOpacity style={styles.buttonFilter} onPress={toggleFilter}>
                     <Text style={styles.textButtonFilter}>Zatwierdź</Text>
                 </TouchableOpacity>

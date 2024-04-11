@@ -76,11 +76,10 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
     },
     filterContentContainer:{
-        backgroundColor: "white",
-        width: "95%",
         display: 'flex',
-        justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: "white",
+        width: 322,
     },
     buttonFilter:{
         backgroundColor: primaryColor,
@@ -105,6 +104,78 @@ export const styles = StyleSheet.create({
         marginTop: 5,
         marginBottom: 5,
         marginRight: 5,
+    },
+    checkboxContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    checkbox: {
+        width: 200,
+        height: 30,
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 5,
+    },
+    checkboxIcon: {
+        width: 30,
+        height: 30,
+        borderWidth: 1,
+        borderRadius: 5,
+    },
+    titleText:{
+        fontSize: 20,
+        fontWeight:"600",
+        marginLeft: 15,
+        marginBottom: 10,
+        color: primaryColor
+    },
+    checkboxText:{
+        fontWeight:"600",
+        marginLeft: 15,
+    },
+    borderFilder: {
+        marginTop: 15,
+        marginBottom: 15,
+        width: 250,
+        height: 1,
+        backgroundColor: primaryColor,
+    },
+    inputSection: {
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    inputContainers: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent:"space-between",
+        width: 200,
+    },
+    inputName:{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 200,
+        height: 50,
+        borderWidth: 1,
+        borderRadius: 5,
+    },
+    input:{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 60,
+        height: 55,
+        borderWidth: 1,
+        borderRadius: 5,
+    },
+    inputText:{
+        color: primaryColor,
+        fontSize: 15,
+        fontWeight: 'bold'
+    },
+    placeholderText: {
+        color: primaryColor,
     },
     sortContent: {
         width,
