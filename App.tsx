@@ -7,6 +7,8 @@ import { Onboarding } from './src/Sections/Onboarding/Onboarding';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { styles } from './src/Sections/Onboarding/Styles/onboardingStyles';
+import LottieView from "lottie-react-native";
+
 
 const Loading = () => {
   return (
@@ -16,9 +18,20 @@ const Loading = () => {
   );
 }
 
+const SplashScreen = () => (
+  <LottieView
+    source={require("./assets/SplashScreen/splash.json")}
+    style={{width: 411, height: 823}}
+    autoPlay
+    loop = {false}
+  />
+);
+
+
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [viewOnboarding, setViewOnboarding] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
 
   const [refresh, setRefresh] = useState(false);
 
@@ -37,7 +50,10 @@ export default function App() {
   }
 
   useEffect(() => {
-    < Loading />
+    setTimeout(() => {
+      setShowSplash(false);
+    }, 1700);
+
     checkOnboarding();
   }, [refresh]);
 
@@ -45,9 +61,17 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      {loading? <Loading/> : viewOnboarding ?
+      {showSplash ? (
+        <SplashScreen />
+      ) : loading ? (
+        <View style={styles.container}>
+          <ActivityIndicator size="large" />
+        </View>
+      ) : viewOnboarding ? (
         <LoginSection />
-      : <Onboarding setRefresh={ () => setRefresh(!refresh)} />}
+      ) : (
+        <Onboarding setRefresh={() => setRefresh(!refresh)} />
+      )}
     </NavigationContainer>
   );
 }

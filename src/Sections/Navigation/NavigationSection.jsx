@@ -16,7 +16,6 @@ import ChangeDeliveryInformationScreen from '../User/Screens/ChangeDeliveryInfor
 import ChangePasswordScreen from '../User/Screens/ChangePasswordScreen';
 import NewsletterSettingsScreen from '../User/Screens/NewsletterSettingsScreen';
 
-
 const Stack = createNativeStackNavigator();
 
 export default function NavigationSection() {
