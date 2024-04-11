@@ -2,12 +2,12 @@ import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { styles } from '../../Styles/TopNavigationPanel';
 
-export default function TopNavigationPanel({ onPressFilter }) {
+export default function TopNavigationPanel({ onPressFilter, onPressSort }) {
 
     return (
         <View style={styles.body}>
             <View style={styles.mainContainer}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={onPressSort}>
                     <Text style={styles.navigateText}>Sortuj</Text>
                 </TouchableOpacity>
 

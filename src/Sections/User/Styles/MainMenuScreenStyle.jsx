@@ -105,5 +105,42 @@ export const styles = StyleSheet.create({
         marginTop: 5,
         marginBottom: 5,
         marginRight: 5,
+    },
+    sortContent: {
+        width,
+        height: 225,
+        backgroundColor: 'rgba(255, 255, 255, 0.8)',        
+    },
+    sortTitle: {
+        width,
+        height: 60,
+        fontFamily: 'Mina-Regular',
+        fontSize: 20,
+        color: primaryColor,
+        textAlign: 'center',
+        paddingTop: 15
+    },
+    sortButton: {
+        height: 40,
+        width,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexDirection: 'row',
+        borderBottomColor: 'gray',
+        borderBottomWidth: 1,
+        paddingHorizontal: 15
+    },
+    sortButtonChoosen: {
+        borderBottomColor: primaryColor,
+        borderBottomWidth: 2,
+    },
+    sortButtonText: {
+        color: 'gray',
+        fontFamily: 'Mina-Regular',
+        fontSize: 15
+    },
+    sortButtonTextChoosen: {
+        fontFamily: 'Mina-Bold',
+        color: primaryColor
     }
 });
