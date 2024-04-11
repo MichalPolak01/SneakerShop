@@ -10,25 +10,23 @@ export default function BottomNavigationUserPanel() {
 
     return (
         <View style={styles.body}>
-        <Shadow distance={10} startColor={'#411c5d'}  offset={[1, 1]}>
+            <Shadow distance={10} startColor={'#411c5d'}  offset={[1, 1]}>
+                <View style={styles.mainContainer}>
+                    <TouchableOpacity onPress={() => navigation.navigate('MainMenu')}>
+                        {/* <Image style={styles.IconsSize} source={require('../../../../../assets/Images/Menu/HomeIcon.png')} /> */}
+                        <Ionicons name={'home-outline'} size={40} color= {'#411c5d'} style={styles.IconsSize} />
+                    </TouchableOpacity>
+                    
+                    <TouchableOpacity onPress={() => navigation.navigate('ShoppingCart')}>
+                        {/* <Image style={styles.IconsSize} source={require('../../../../../assets/Images/Menu/ShopingCartMenuIcon.png')} /> */}
+                        <Ionicons name={'cart-outline'} size={45} color= {'#411c5d'} style={styles.IconsSize} />
+                    </TouchableOpacity>
 
-            
-            <View style={styles.mainContainer}>
-                <TouchableOpacity onPress={() => navigation.navigate('MainMenu')}>
-                    {/* <Image style={styles.IconsSize} source={require('../../../../../assets/Images/Menu/HomeIcon.png')} /> */}
-                    <Ionicons name={'home-outline'} size={40} color= {'#411c5d'} style={styles.IconsSize} />
-                </TouchableOpacity>
-                
-                <TouchableOpacity onPress={() => navigation.navigate('ShoppingCart')}>
-                    {/* <Image style={styles.IconsSize} source={require('../../../../../assets/Images/Menu/ShopingCartMenuIcon.png')} /> */}
-                    <Ionicons name={'cart-outline'} size={45} color= {'#411c5d'} style={styles.IconsSize} />
-                </TouchableOpacity>
-
-                <TouchableOpacity onPress={() => navigation.navigate('AccountSettings')}>
-                    {/* <Image style={styles.IconsSize} source={require('../../../../../assets/Images/Menu/PersonIcon.png')} /> */}
-                    <Ionicons name={'person-outline'} size={40} color= {'#411c5d'} style={styles.IconsSize} />
-                </TouchableOpacity>
-            </View>
+                    <TouchableOpacity onPress={() => navigation.navigate('AccountSettings')}>
+                        {/* <Image style={styles.IconsSize} source={require('../../../../../assets/Images/Menu/PersonIcon.png')} /> */}
+                        <Ionicons name={'person-outline'} size={40} color= {'#411c5d'} style={styles.IconsSize} />
+                    </TouchableOpacity>
+                </View>
             </Shadow>
         </View>
     );

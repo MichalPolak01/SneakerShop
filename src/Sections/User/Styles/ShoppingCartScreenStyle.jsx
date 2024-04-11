@@ -1,6 +1,8 @@
 import { StyleSheet, Dimensions } from "react-native";
 
-const { width } = Dimensions.get('window');
+
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 const primaryColor = '#411c5d';
 
@@ -13,19 +15,17 @@ export const styles = StyleSheet.create({
     mainContainer:{
         flexGrow: 1,
         alignItems: 'center',
-        width: 411 // Później do zmiany bo belka się buguje
     },
     payForCartButton:{
         backgroundColor: primaryColor,
         flexDirection: "row",
-        width: 250,
+        width: width * 0.7,
         height: 65,
         borderRadius: 10,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 20,
-        marginTop: 20,
+        marginVertical: 20
     },
     payForCartText:{
         color: "white",
@@ -33,8 +33,8 @@ export const styles = StyleSheet.create({
         fontWeight: "700"
     },
     cashImage:{
-        width: 45,
-        height: 45,
+        width: 75,
+        objectFit: 'contain',
         marginRight: 20,
     },
     cartProduct:{

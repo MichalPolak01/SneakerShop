@@ -10,15 +10,15 @@ export default function ShoppingCartScreen() {
         <View style={styles.body}>
             <TopNavigationPanel/>
             <ScrollView contentContainerStyle={styles.mainContainer}>
-            <View>
-                {CartList.map((product) => (<CartItem key={product.id} product={product} />))}
-            </View>      
+                <View>
+                    {CartList.map((product) => (<CartItem key={product.id} product={product} />))}
+                </View>      
+                
+                <TouchableOpacity style={styles.payForCartButton}>
+                    <Image style={styles.cashImage} source={require('../../../../assets/Images/Menu/CashIcon.png')} />
+                    <Text style={styles.payForCartText}>{SumCart(CartList)} zł</Text>
+                </TouchableOpacity>
             </ScrollView>
-            
-            <TouchableOpacity style={styles.payForCartButton}>
-                 <Image style={styles.cashImage} source={require('../../../../assets/Images/Menu/CashIcon.png')} />
-                 <Text style={styles.payForCartText}>{SumCart(CartList)} zł</Text>
-            </TouchableOpacity>
             <BottomNavigationPanel/>
         </View>
     )

@@ -1,7 +1,9 @@
 import { StyleSheet, Dimensions } from "react-native";
 
 const primaryColor = '#411c5d';
-const windowWidth = Dimensions.get('window').width;
+
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 export const styles = StyleSheet.create({
     body: {
@@ -13,22 +15,22 @@ export const styles = StyleSheet.create({
         flexGrow: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',
+        rowGap: 15,
+        columnGap: 15,
         justifyContent: 'space-around',
         alignItems: 'flex-start',
-        paddingVertical: 20,
+        padding: 10,
+        paddingBottom: 20
     },
     productContainer:{
         backgroundColor: "#d7d7d7",
-        width: (windowWidth - 40) / 2,
+        width: (width - 35) /2,
         height: 200,
         borderColor: primaryColor,
-        borderWidth: 3,
+        borderWidth: 2,
         borderRadius: 20,
-        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 20,
-        marginBottom: 10,
         position: 'relative',
     },
     productImage:{
@@ -41,7 +43,7 @@ export const styles = StyleSheet.create({
         width: "103%",
         height: 60,
         borderColor: primaryColor,
-        borderWidth: 3,
+        borderWidth: 2,
         borderRadius: 20,
         display: 'flex',
         justifyContent: 'center',
