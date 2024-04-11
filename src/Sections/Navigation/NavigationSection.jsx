@@ -11,6 +11,10 @@ import OrderApprovalScreen from '../Worker/Screens/OrderApprovalScreen';
 import ProductManagementScreen from '../Worker/Screens/ProductManagementScreen';
 import AddProductScreen from '../Worker/Screens/AddProductScreen';
 import AccountSettingsScreen from '../User/Screens/AccountSettingsScreen';
+import ChangePersonalInformationScreen from '../User/Screens/ChangePersonalInformationScreen';
+import ChangeDeliveryInformationScreen from '../User/Screens/ChangeDeliveryInformationScreen';
+import ChangePasswordScreen from '../User/Screens/ChangePasswordScreen';
+import NewsletterSettingsScreen from '../User/Screens/NewsletterSettingsScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -27,6 +31,10 @@ export default function NavigationSection() {
             <Stack.Screen name='ProductManagement' component={ProductManagementScreen} />
             <Stack.Screen name='AddProduct' component={AddProductScreen} />
             <Stack.Screen name='AccountSettings' component={AccountSettingsScreen} />
+            <Stack.Screen name='ChangePersonalInformation' component={ChangePersonalInformationScreen} />
+            <Stack.Screen name='ChangeDeliveryInformatin' component={ChangeDeliveryInformationScreen} />
+            <Stack.Screen name='ChangePassword' component={ChangePasswordScreen} />
+            <Stack.Screen name='NewsletterSettings' component={NewsletterSettingsScreen} />
         </Stack.Navigator>
     );
 }

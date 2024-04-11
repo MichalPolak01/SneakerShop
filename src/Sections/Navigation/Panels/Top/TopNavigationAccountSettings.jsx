@@ -9,14 +9,14 @@ export default function TopNavigationAccountSettings() {
 
     return (
         <View style={styles.body}>
-            <View style={styles.mainContainer}>
-                <View style={styles.box}></View>
+            <View style={styles.mainContainer}>                
+                <TouchableOpacity onPress={() => navigation.navigate('AccountSettings')} style={styles.box}>
+                    <Ionicons name={'arrow-back-outline'} size={40} color= {'#fff'} />
+                </TouchableOpacity>
                 
                 <Image style={styles.nameImage} source={require('../../../../../assets/Images/Login/Name.png')} />
                 
-                <TouchableOpacity onPress={() => navigation.navigate('Login')} style={styles.box}>
-                    <Ionicons name={'log-out-outline'} size={40} color= {'#411c5d'} style={styles.IconsSize} />
-                </TouchableOpacity>
+                <View style={styles.box}></View>
             </View>
             <View style={styles.bottomBorder}></View>
         </View>

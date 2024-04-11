@@ -12,20 +12,17 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         flex: 1,
     },
-
+    
     form: {
         width: width - 20,
         marginTop: 15,
-        marginBottom: 5,
-        height: height -143,
+        flexGrow: 1,
     },
 
     card: {
         backgroundColor: '#fff',
-        paddingBottom: 10,
         width: width - 25,
         borderRadius: 20,
-        flexGrow: 1,
     },
 
     header: {
@@ -47,6 +44,7 @@ export const styles = StyleSheet.create({
 
     stamp: {
         flex: 1,
+        height: '85%',
         objectFit: 'contain',
         alignSelf: 'center',
         marginVertical: 20,
@@ -66,13 +64,13 @@ export const styles = StyleSheet.create({
         borderBottomColor: '#676e78',
         width: '85%',
         alignSelf: 'center',
-        
     },
 
     input: {
-        fontSize: 16,
+        height: 38,
+        fontSize: 15,
         textAlignVertical: 'bottom',
-        paddingHorizontal: 10
+        paddingHorizontal: 10,
     },
 
     inputError: {
@@ -98,5 +96,59 @@ export const styles = StyleSheet.create({
     errorMessage: {
         fontFamily: 'Mina-Regular',
         color: 'red'
+    },
+
+    textHint: {
+        marginTop: 20,
+        color: purple,
+        fontFamily: 'Mina-Bold',
+        fontSize: 16
+    },
+
+    /* Newsletter */
+    contentNewsletter: {
+        flexGrow: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+
+    titleNewsletter: {
+        color: '#fff',
+        textAlign: 'center',
+        fontSize: 25,
+        fontFamily: 'Mina-Regular',
+        marginBottom: 25
+    },
+
+    customRadioButton: {
+        width: width* 0.9,
+        height: 50,
+        borderWidth: 2,
+        borderRadius: 20,
+        marginVertical: 5,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    customRadioButtonNormal: {
+        backgroundColor: 'rgba(255 255 255 / 0.6)',
+        borderColor: purple,
+    },
+
+    customRadioButtonSelected: {
+        backgroundColor: purple,
+        borderColor: '#fff',
+    },
+
+    customRadioButtonText: {
+        color: purple,
+        fontFamily: 'Mina-Regular',
+        fontSize: 16
+    },
+
+    customRadioButtonTextSelected: {
+        color: '#fff',
+        fontFamily: 'Mina-Regular',
+        fontSize: 16
     }
 });

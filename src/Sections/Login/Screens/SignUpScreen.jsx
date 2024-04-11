@@ -19,7 +19,7 @@ export default function SignUpScreen() {
         password: '',
         rePassword: '',
         street: '',
-        streetSecondLine: '',
+        // streetSecondLine: '',
         city: '',
         postalCode: '',
         country: ''
@@ -33,7 +33,7 @@ export default function SignUpScreen() {
         password: '',
         rePassword: '',
         street: '',
-        streetSecondLine: '',
+        // streetSecondLine: '',
         city: '',
         postalCode: '',
         country: ''
@@ -116,11 +116,11 @@ export default function SignUpScreen() {
         } else {
             errorMessages.street = '';
         }
-        if (account.streetSecondLine.trim() === '') {
-            errorMessages.streetSecondLine = 'Street address is required!';
-        } else {
-            errorMessages.streetSecondLine = '';
-        }
+        // if (account.streetSecondLine.trim() === '') {
+        //     errorMessages.streetSecondLine = 'Street address is required!';
+        // } else {
+        //     errorMessages.streetSecondLine = '';
+        // }
         if (account.city.trim() === '') {
             errorMessages.city = 'City is required!';
         } else {
@@ -245,10 +245,10 @@ export default function SignUpScreen() {
                     <>
                         <>
                             <LoginFormInput iconName='navigate-outline' iconSize={30} text='Street Address' value={account.street} handleOnChange={(value) => handleChange('street', value)} errorMessage={errorMessage.street} />
-                            <LoginFormInput iconName='locate-outline' iconSize={30} text='Street Address Line 2' value={account.streetSecondLine} handleOnChange={(value) => handleChange('streetSecondLine', value)} errorMessage={errorMessage.streetSecondLine} />
-                            <LoginFormInput iconName='navigate-outline' iconSize={30} text='City' value={account.city} handleOnChange={(value) => handleChange('city', value)} errorMessage={errorMessage.city} />
-                            <LoginFormInput iconName='locate-outline' iconSize={30} text='Postal / Zpi Code' value={account.postalCode} handleOnChange={(value) => handleChange('postalCode', value)} errorMessage={errorMessage.postalCode} />
-                            <LoginFormInput iconName='navigate-outline' iconSize={30} text='Country' value={account.country} handleOnChange={(value) => handleChange('country', value)} errorMessage={errorMessage.country} />
+                            {/* <LoginFormInput iconName='locate-outline' iconSize={30} text='Street Address Line 2' value={account.streetSecondLine} handleOnChange={(value) => handleChange('streetSecondLine', value)} errorMessage={errorMessage.streetSecondLine} /> */}
+                            <LoginFormInput iconName='locate-outline' iconSize={30} text='City' value={account.city} handleOnChange={(value) => handleChange('city', value)} errorMessage={errorMessage.city} />
+                            <LoginFormInput iconName='navigate-outline' iconSize={30} text='Postal / Zpi Code' value={account.postalCode} handleOnChange={(value) => handleChange('postalCode', value)} errorMessage={errorMessage.postalCode} />
+                            <LoginFormInput iconName='locate-outline' iconSize={30} text='Country' value={account.country} handleOnChange={(value) => handleChange('country', value)} errorMessage={errorMessage.country} />
                         </>
                         <View style={styles.buttonNext2Button}>
                             <Animated.View entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.buttonBoxSmall}>
