@@ -97,17 +97,14 @@ function FilterSection({ toggleFilter }) {
         male: false,
         female: false,
         unisex: false
-    });
-
-    const [priceFilters, setPriceFilters] = useState({
-        from: '',
-        to: ''
-    });
-
-    const [sizeFilters, setSizeFilters] = useState({
-        from: '',
-        to: ''
-    });
+      });
+    
+      const handleCheckboxToggle = (gender) => {
+        setGenderFilters(prevState => ({
+          ...prevState,
+          [gender]: !prevState[gender]
+        }));
+      };
     
     return (
         <View style={styles.backgroundFilter}>
@@ -131,16 +128,28 @@ function FilterSection({ toggleFilter }) {
                 
                     <View style={styles.checkboxContainer}>
                     <Text style={styles.titleText}>Płeć</Text>
-                        <TouchableOpacity style={[styles.checkbox, genderFilters.male && styles.checked]}>
-                            <View style={styles.checkboxIcon}></View>
+                        <TouchableOpacity
+                            style={[styles.checkbox, genderFilters.male && styles.checked]}
+                            onPress={() => handleCheckboxToggle('male')}>
+                            <View style={styles.checkboxIcon}>
+                                {genderFilters.male && <Ionicons name={'checkmark-outline'} size={20} color= {'#411c5d'} style={styles.IconsSize} />}
+                            </View>
                             <Text style={styles.checkboxText}>Mężczyźni</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={[styles.checkbox, genderFilters.male && styles.checked]}>
-                            <View style={styles.checkboxIcon}></View>
+                        <TouchableOpacity
+                            style={[styles.checkbox, genderFilters.female && styles.checked]}
+                            onPress={() => handleCheckboxToggle('female')}>
+                            <View style={styles.checkboxIcon}>
+                                {genderFilters.female && <Ionicons name={'checkmark-outline'} size={20} color= {'#411c5d'} style={styles.IconsSize} />}
+                            </View>
                             <Text style={styles.checkboxText}>Kobiety</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={[styles.checkbox, genderFilters.male && styles.checked]}>
-                            <View style={styles.checkboxIcon}></View>
+                        <TouchableOpacity
+                            style={[styles.checkbox, genderFilters.unisex && styles.checked]}
+                            onPress={() => handleCheckboxToggle('unisex')}>
+                            <View style={styles.checkboxIcon}>
+                                {genderFilters.unisex && <Ionicons name={'checkmark-outline'} size={20} color= {'#411c5d'} style={styles.IconsSize} />}
+                            </View>
                             <Text style={styles.checkboxText}>Uniseks</Text>
                         </TouchableOpacity>
                     </View>

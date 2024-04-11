@@ -118,10 +118,14 @@ export const styles = StyleSheet.create({
         marginBottom: 5,
     },
     checkboxIcon: {
-        width: 30,
-        height: 30,
-        borderWidth: 1,
-        borderRadius: 5,
+        width: 24,
+        height: 24,
+        borderWidth: 2,
+        borderColor: '#000',
+        marginRight: 10,
+    },
+    checkedIcon: {
+        backgroundColor: primaryColor, 
     },
     titleText:{
         fontSize: 20,
