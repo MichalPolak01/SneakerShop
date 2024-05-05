@@ -86,7 +86,6 @@ export default function AddProductScreen() {
                             onChangeText={setDescription}
                         />
                     </View>
-                
             
                 <TouchableOpacity style={styles.buttonContainer}>
                     <Text style={styles.buttonText}>Add</Text>

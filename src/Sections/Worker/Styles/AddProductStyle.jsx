@@ -18,12 +18,14 @@ export const styles = StyleSheet.create({
     },
     mainContainer:{
         alignItems: 'center',
+        height: "auto",
+        marginBottom: -50,
     },
     titleText:{
         color: primaryColor,
         fontFamily: 'Mina-Bold',
         fontSize: 40,
-        marginVertical: 10
+        marginVertical: 10,
     },
     inputContainer:{
         backgroundColor: secColor,

@@ -58,15 +58,22 @@ export const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: "bold"
     },
-    sizeSelectorContainer:{
+    SelectorContainer:{
         backgroundColor: "#d7d7d7",
-        width: 30,
-        height: 30,
+        width: 120,
+        height: 35,
         marginLeft: 18,
-        borderRadius: 5,
+        borderColor: primaryColor,
+        borderWidth: 3,
+        borderRadius: 20,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    sizePickerContainer:{
+        width: '100%',
+        height: 10,
+        marginLeft: 18
     },
     sizeSelectorValue:{
         fontSize: 18,

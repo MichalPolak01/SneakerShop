@@ -1,4 +1,5 @@
-import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native'
+import React, { useState } from 'react';
+import { View, Text, Image, TouchableOpacity, ScrollView, TextInput } from 'react-native'
 import { styles } from '../Styles/ProductManagementScreenStyle';
 import TopNavigationPanel from '../../Navigation/Panels/Top/TopNavigationCleanPanel';
 import BottomNavigationPanel from '../../Navigation/Panels/Bottom/BottomNavigationWorkerPanel';
@@ -20,6 +21,16 @@ export default function ProductManagementScreen() {
 }
 
 function CartItem({ product }) {
+    const [size, setSize] = useState(''); 
+    const [quantity, setQuantity] = useState('');
+
+    const handleSizeChange = (text) => {
+        setSize(text);
+    };
+
+    const handleQuantityChange = (text) => {
+        setQuantity(text);
+    };
     return (
         <View style={styles.product}>
                     <View style={styles.productImageContainer}>
@@ -31,13 +42,23 @@ function CartItem({ product }) {
                             <View style={styles.partSelectorContainer}>
                                 <Text style={styles.sizeProductText}>Rozmiar</Text>
                                 <View style={styles.sizeSelectorContainer}>
-                                    <Text style={styles.sizeSelectorValue}>41</Text>
+                                    <TextInput
+                                        style={styles.sizeSelectorValue}
+                                        value={size}
+                                        onChangeText={handleSizeChange}
+                                        keyboardType="numeric"
+                                    />
                                 </View>
                             </View>
                             <View style={styles.partSelectorContainer}>
                                 <Text style={styles.sizeProductText}>Ilość</Text>
-                                <View style={styles.sizeSelectorContainer}>
-                                    <Text style={styles.sizeSelectorValue}>1</Text>
+                                <View style={{...styles.sizeSelectorContainer, width: 35}}>
+                                    <TextInput
+                                        style={styles.sizeSelectorValue}
+                                        value={quantity}
+                                        onChangeText={handleQuantityChange}
+                                        keyboardType="numeric"
+                                    />
                                 </View>
                             </View>
                         </View>

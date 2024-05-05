@@ -82,12 +82,13 @@ export const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         marginRight: 15,
-        left: 20
+        left: 20,
     },
     sizeSelectorValue:{
-        fontSize: 18,
+        height: 60,
+        fontSize: 15,
         fontWeight: 'bold',
-        color: 'white'
+        color: 'white',
     },
     priceContainer:{
         width: '112%',
