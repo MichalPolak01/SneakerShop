@@ -87,5 +87,5 @@ export const styles = StyleSheet.create({
         fontFamily: 'Mina-Regular',
         color: '#fff',
         fontSize: 18,
-    }
+    },
 });

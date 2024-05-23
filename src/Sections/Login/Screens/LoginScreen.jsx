@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
-import { View, Text, Image, TouchableOpacity, KeyboardAvoidingView, ScrollView, ToastAndroid } from 'react-native'
+import { View, Text, Image, TouchableOpacity, KeyboardAvoidingView, ScrollView, ToastAndroid, Alert } from 'react-native'
 import LoginFormInput from '../Components/LoginFormInput';
 import { styles } from '../Styles/loginStyles'
 import { useNavigation } from '@react-navigation/native';
 import Animated, { FadeInUp, RotateInDownLeft } from 'react-native-reanimated';
+import axios from 'axios';
+import * as Keychain from 'react-native-keychain';
+import LoadingModal from '../Components/LoadingModal';
 
 export default function LoginScreen() {
     const navigation = useNavigation();
+    const [modalVisible, setModalVisibility] = useState(false);
 
     const [login, setLogin] = useState({
         email: '',
@@ -44,8 +48,6 @@ export default function LoginScreen() {
     }
 
     const handleLogin = async () => {
-        console.log(login); /* DO USUNIĘCIA */
-
         const errorMessages = await validation();
 
         if ( errorMessages.email !== '' || errorMessages.password !== '' ) {
@@ -53,8 +55,7 @@ export default function LoginScreen() {
             return;
         }
 
-        /* TO DO LOGIN */
-        // handleChangeRoute();
+        logIn();
     }
 
     const handleChange = (name, value) => {
@@ -63,6 +64,68 @@ export default function LoginScreen() {
             [name]: value
         }));
     };
+
+    const showAlertEmailNotConfirmed = () => {
+        Alert.alert(
+            "Email niepotwierdzony!",
+            "Aby zalogować się na to konto musisz potwierdzić swoje konto. \nMożesz to zrobić poprzez kliknięcie w link na swoim koncie emial.",
+            [
+                {
+                    text: "OK",
+                    onPress: () => console.log("OK Pressed")
+                },
+                {
+                    text: "Wyślij wiadomość ponownie",
+                    onPress: () => console.log("OK Pressed")
+                }
+            ]
+        );
+    }
+
+    const logIn = () => {
+        setModalVisibility(true);
+        axios.post('https://sneakers-api.fly.dev/api/auth/login', login).then(response => {
+            const userData = {
+                email: response.data.email,
+                emailConfirmed: response.data.emailConfirmed,
+                roles: response.data.roles,
+                token: response.data.token
+            };
+
+            Keychain.setGenericPassword('USER-DATA', JSON.stringify(userData))
+                .then(() => {
+                    console.log('User data saved successfully');
+                })
+                .catch(error => {
+                    console.error('Failed to save user data', error);
+            });
+
+            if (response.data.roles[0].name === "User") {
+                navigation.navigate("MainMenu");
+            } else if (response.data.roles[0].name === "Employee") {
+                navigation.navigate("AddProduct");
+            } else {
+                navigation.navigate("Login");
+                ToastAndroid.showWithGravity('An unexpected error occurred while logging in. Please try again later.', ToastAndroid.SHORT, ToastAndroid.CENTER);
+                setModalVisibility(false);
+                return;
+            }
+
+            if (!response.data.emailConfirmed) {
+                showAlertEmailNotConfirmed();
+            }
+            setModalVisibility(false);
+        }).catch(error => {
+            setModalVisibility(false);
+            console.log("Login error!", error);
+            ToastAndroid.showWithGravity('No account found. Please check your email and password.', ToastAndroid.SHORT, ToastAndroid.CENTER);
+            
+            let errorMessages = {...errorMessage};
+            errorMessages.email = 'Invalid Email or Password!';
+            errorMessages.password = 'Invalid Email or Password!';
+            setErrorMessage(errorMessages);
+        });
+    }
 
     return (
         <ScrollView style={styles.body}>
@@ -98,17 +161,17 @@ export default function LoginScreen() {
                     </TouchableOpacity>
                 </Animated.View>
             
-
                 {/* Developer login  */}
                 <View style={{ display: "flex", alignItems: "center", backgroundColor: "#411c5d", width: 300, borderRadius: 20 }}>
-                    <TouchableOpacity onPress={() => navigation.navigate('MainMenu')}>
-                        <Text style={[styles.buttonText, {textAlign: 'center'}]}>User</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('AddProduct')}>
+                    <TouchableOpacity onPress={() => setLogin({ email: "michalpl6188@gmail.com", password: "Qwerty1234%" })}>
                         <Text style={[styles.buttonText, {textAlign: 'center'}]}>Worker</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => setLogin({ email: "michalpl918@gmail.com", password: "Qwerty1234%" })}>
+                        <Text style={[styles.buttonText, {textAlign: 'center'}]}>User</Text>
                     </TouchableOpacity>
                 </View>
                 </KeyboardAvoidingView>
+                <LoadingModal visible={modalVisible}/>
         </ScrollView>
     )
 }

@@ -1,6 +1,6 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import * as Keychain from 'react-native-keychain';
 
 import LoginScreen from '../Login/Screens/LoginScreen';
 import SignUpScreen from '../Login/Screens/SignUpScreen';
@@ -15,12 +15,44 @@ import ChangePersonalInformationScreen from '../User/Screens/ChangePersonalInfor
 import ChangeDeliveryInformationScreen from '../User/Screens/ChangeDeliveryInformationScreen';
 import ChangePasswordScreen from '../User/Screens/ChangePasswordScreen';
 import NewsletterSettingsScreen from '../User/Screens/NewsletterSettingsScreen';
+import LoadingModal from '../Login/Components/LoadingModal';
 
 const Stack = createNativeStackNavigator();
 
 export default function NavigationSection() {
+    const [userRole, setUserRole] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    const getUserRole = async () => {
+        try {
+            const credentials = await Keychain.getGenericPassword();
+            if (credentials) {
+                const parsedData = JSON.parse(credentials.password);
+                setUserRole(parsedData.roles[0].name);
+                console.log(userRole);
+                console.log('Parsed Credentials:', parsedData);
+            } else {
+                console.log('No credentials stored');
+            }
+        } catch (error) {
+            console.error('Failed to load user data', error);
+        }  finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        getUserRole()
+    });
+
+    if (loading) {
+        return (
+            <LoadingModal visible={loading}/>
+        );
+    }
+
     return (
-        <Stack.Navigator initialRouteName='Login' screenOptions={{headerShown: false}}>
+        <Stack.Navigator initialRouteName={userRole === "User"? "MainMenu": userRole === "Employe"? "Add product": "LoginScreen"} screenOptions={{headerShown: false}}>
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name='SignUp' component={SignUpScreen} />
             <Stack.Screen name='Product' component={ProductScreen} />

@@ -1,13 +1,28 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import React, {useState} from 'react';
+import { View, Text, TouchableOpacity, Image, Modal, ActivityIndicator, ToastAndroid } from 'react-native';
 import { useNavigation } from '@react-navigation/native'; 
 import { styles } from '../Styles/AccountSettingsStyle';
 import TopNavigationCleanPanel from '../../Navigation/Panels/Top/TopNavigationCleanPanel';
 import BottomNavigationUserPanel from '../../Navigation/Panels/Bottom/BottomNavigationUserPanel';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import * as Keychain from 'react-native-keychain';
 
 export default function AccountSettingsScreen() {
     const navigation = useNavigation();
+    const [loading, setLoading] = useState(false);
+
+    const handleLogout = async () => {
+        try {
+            await Keychain.resetGenericPassword();
+            ToastAndroid.showWithGravity('Logged out successfully!', ToastAndroid.SHORT, ToastAndroid.CENTER);
+            navigation.navigate('Login');
+        } catch (error) {
+            console.log('Failed to log out', error);
+            ToastAndroid.showWithGravity('Failed to log out. Please try again!', ToastAndroid.SHORT, ToastAndroid.CENTER);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <View style={styles.body}>
@@ -46,13 +61,23 @@ export default function AccountSettingsScreen() {
                         <Text style={styles.buttonText}>Ustawienia newslettera</Text>
                         <Ionicons name={'chevron-forward-outline'} size={35} color= {'#fff'} style={styles.IconsSize} />
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')} >
+                    <TouchableOpacity style={styles.button} onPress={() => handleLogout()} >
                         <Text style={styles.buttonText}>Wyloguj</Text>
                         <Ionicons name={'chevron-forward-outline'} size={35} color= {'#fff'} style={styles.IconsSize} />
                     </TouchableOpacity>                    
                 </View>
             </View>
             <BottomNavigationUserPanel />
+
+            <Modal
+                transparent={true}
+                animationType={'none'}
+                visible={loading}
+                onRequestClose={() => {}}>
+                <View style={styles.modalBackground}>
+                    <ActivityIndicator size="large" color="#C3C7DF" style={{ transform: [{ scale: 1.5 }] }} />
+                </View>
+            </Modal>
         </View>
     );
 }

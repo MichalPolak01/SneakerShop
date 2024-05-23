@@ -93,6 +93,6 @@ export const styles = StyleSheet.create({
         marginVertical: 10,
         backgroundColor: '#490e75',
         borderRadius: 15,
-        marginHorizontal: '1%'
+        marginHorizontal: '1%',
     }
 });
