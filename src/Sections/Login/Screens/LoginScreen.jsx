@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { View, Text, Image, TouchableOpacity, KeyboardAvoidingView, ScrollView, ToastAndroid, Alert } from 'react-native'
-import LoginFormInput from '../Components/LoginFormInput';
+import FormInput from '../Components/FormInput';
 import { styles } from '../Styles/loginStyles'
 import { useNavigation } from '@react-navigation/native';
 import Animated, { FadeInUp, RotateInDownLeft } from 'react-native-reanimated';
@@ -145,8 +145,8 @@ export default function LoginScreen() {
             </View>
 
             <KeyboardAvoidingView behavior='height' keyboardVerticalOffset={-100} style={styles.form}>
-                <LoginFormInput iconName='mail-outline' iconSize={30} text='E-mail' value={login.email} handleOnChange={(value) => handleChange('email', value)} errorMessage={errorMessage.email} />
-                <LoginFormInput iconName='lock-closed-outline' iconSize={30} text='Password' value={login.password} secue={true} handleOnChange={(value) => handleChange('password', value)} errorMessage={errorMessage.password} />
+                <FormInput iconName='mail-outline' iconSize={30} text='E-mail' value={login.email} handleOnChange={(value) => handleChange('email', value)} errorMessage={errorMessage.email} />
+                <FormInput iconName='lock-closed-outline' iconSize={30} text='Password' value={login.password} secue={true} handleOnChange={(value) => handleChange('password', value)} errorMessage={errorMessage.password} />
                 
                 <Animated.View entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.buttonBox}>
                     <TouchableOpacity onPress={() => handleLogin()} style={styles.button}>

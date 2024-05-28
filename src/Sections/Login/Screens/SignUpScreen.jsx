@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, Text, Image, TouchableOpacity, ScrollView, KeyboardAvoidingView, ToastAndroid, Alert, ActivityIndicator, Modal } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import LoginFormInput from '../Components/LoginFormInput';
+import FormInput from '../Components/FormInput';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../Styles/signUpStyles';
 import Animated, { FadeInUp, RotateInDownLeft } from 'react-native-reanimated';
@@ -276,12 +276,12 @@ export default function SignUpScreen() {
             <KeyboardAvoidingView behavior='point' style={styles.form}>
                 { personalDataForm ? 
                     <>
-                        <LoginFormInput iconName='person-outline' iconSize={30} text='Name' value={account.contact.name} handleOnChange={(value) => handleChange('name', value, true)} errorMessage={errorMessage.contact.name}/>
-                        <LoginFormInput iconName='person-outline' iconSize={30} text='Surname' value={account.contact.lastname} handleOnChange={(value) => handleChange('lastname', value, true)} errorMessage={errorMessage.contact.lastname} />
-                        <LoginFormInput iconName='call-outline' iconSize={30} text='Phone' value={account.contact.phoneNumber} handleOnChange={(value) => handleChange('phoneNumber', value, true)} errorMessage={errorMessage.contact.phoneNumber} />
-                        <LoginFormInput iconName='mail-outline' iconSize={30} text='E-mail' value={account.email} handleOnChange={(value) => handleChange('email', value)} errorMessage={errorMessage.email} />
-                        <LoginFormInput iconName='lock-closed-outline' iconSize={30} text='Password' value={account.password} secue={true} handleOnChange={(value) => handleChange('password', value)} errorMessage={errorMessage.password} />
-                        <LoginFormInput iconName='lock-closed-outline' iconSize={30} text='Re-password' value={account.passwordRepeted} secue={true} handleOnChange={(value) => handleChange('passwordRepeted', value)} errorMessage={errorMessage.passwordRepeted} />
+                        <FormInput iconName='person-outline' iconSize={30} text='Name' value={account.contact.name} handleOnChange={(value) => handleChange('name', value, true)} errorMessage={errorMessage.contact.name}/>
+                        <FormInput iconName='person-outline' iconSize={30} text='Surname' value={account.contact.lastname} handleOnChange={(value) => handleChange('lastname', value, true)} errorMessage={errorMessage.contact.lastname} />
+                        <FormInput iconName='call-outline' iconSize={30} text='Phone' value={account.contact.phoneNumber} handleOnChange={(value) => handleChange('phoneNumber', value, true)} errorMessage={errorMessage.contact.phoneNumber} />
+                        <FormInput iconName='mail-outline' iconSize={30} text='E-mail' value={account.email} handleOnChange={(value) => handleChange('email', value)} errorMessage={errorMessage.email} />
+                        <FormInput iconName='lock-closed-outline' iconSize={30} text='Password' value={account.password} secue={true} handleOnChange={(value) => handleChange('password', value)} errorMessage={errorMessage.password} />
+                        <FormInput iconName='lock-closed-outline' iconSize={30} text='Re-password' value={account.passwordRepeted} secue={true} handleOnChange={(value) => handleChange('passwordRepeted', value)} errorMessage={errorMessage.passwordRepeted} />
 
                         <Animated.View entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.buttonBox}>
                             
@@ -301,11 +301,11 @@ export default function SignUpScreen() {
                 :
                     <>
                         <>
-                            <LoginFormInput iconName='navigate-outline' iconSize={30} text='Street Address' value={account.contact.street} handleOnChange={(value) => handleChange('street', value, true)} errorMessage={errorMessage.contact.street} />
-                            <LoginFormInput iconName='locate-outline' iconSize={30} text='Street Number' value={account.contact.streetNumber} handleOnChange={(value) => handleChange('streetNumber', value, true)} errorMessage={errorMessage.contact.streetNumber} />
-                            <LoginFormInput iconName='navigate-outline' iconSize={30} text='City' value={account.contact.city} handleOnChange={(value) => handleChange('city', value, true)} errorMessage={errorMessage.contact.city} />
-                            <LoginFormInput iconName='locate-outline' iconSize={30} text='Postal / Zpi Code' value={account.contact.postalCode} handleOnChange={(value) => handleChange('postalCode', value, true)} errorMessage={errorMessage.contact.postalCode} />
-                            <LoginFormInput iconName='navigate-outline' iconSize={30} text='Country' value={account.contact.country} handleOnChange={(value) => handleChange('country', value, true)} errorMessage={errorMessage.contact.country} />
+                            <FormInput iconName='navigate-outline' iconSize={30} text='Street Address' value={account.contact.street} handleOnChange={(value) => handleChange('street', value, true)} errorMessage={errorMessage.contact.street} />
+                            <FormInput iconName='locate-outline' iconSize={30} text='Street Number' value={account.contact.streetNumber} handleOnChange={(value) => handleChange('streetNumber', value, true)} errorMessage={errorMessage.contact.streetNumber} />
+                            <FormInput iconName='navigate-outline' iconSize={30} text='City' value={account.contact.city} handleOnChange={(value) => handleChange('city', value, true)} errorMessage={errorMessage.contact.city} />
+                            <FormInput iconName='locate-outline' iconSize={30} text='Postal / Zpi Code' value={account.contact.postalCode} handleOnChange={(value) => handleChange('postalCode', value, true)} errorMessage={errorMessage.contact.postalCode} />
+                            <FormInput iconName='navigate-outline' iconSize={30} text='Country' value={account.contact.country} handleOnChange={(value) => handleChange('country', value, true)} errorMessage={errorMessage.contact.country} />
                         </>
                         <View style={styles.buttonNext2Button}>
                             <Animated.View entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.buttonBoxSmall}>

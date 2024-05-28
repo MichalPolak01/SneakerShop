@@ -5,7 +5,7 @@ import { styles } from '../Styles/loginFormInputStyles';
 import Animated, { FadeInUp } from 'react-native-reanimated';
 import { HelperText } from 'react-native-paper';
 
-export default function LoginFormInput(props) {
+export default function FormInput(props) {
   const {iconName, iconSize, text, value, handleOnChange, secue = false, errorMessage} = props;
   return (
     <>
@@ -14,8 +14,8 @@ export default function LoginFormInput(props) {
       <TextInput secureTextEntry={secue} value={value} onChangeText={handleOnChange} placeholder={text} placeholderTextColor={errorMessage? 'red' : '#fff'} style={[styles.inputText, errorMessage? styles.markText : null]}></TextInput>
 
     </Animated.View>
-        {errorMessage && <Animated.View entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.errorMessageBox}>
-        <HelperText type="error" style={styles.errorMessage}>
+    {errorMessage && <Animated.View entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.errorMessageBox}>
+      <HelperText type="error" style={styles.errorMessage}>
           {errorMessage}
       </HelperText></Animated.View>}
       </>

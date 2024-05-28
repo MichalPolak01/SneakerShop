@@ -17,17 +17,8 @@ export const styles = StyleSheet.create({
         flexDirection: 'row', 
         justifyContent: 'space-around',
         alignItems: 'center',
-        // paddingHorizontal: 15, 
-        // paddingVertical: 7,
         backgroundColor: "white",
-        // borderColor: primaryColor,
-        // borderWidth: 3,
-        // borderRadius: 20,
         borderTopLeftRadius: 25,
-        borderTopRightRadius: 25
+        borderTopRightRadius: 25,
     },
-    IconsSize:{
-        // width: 70,
-        // height: 40,
-    }
 });

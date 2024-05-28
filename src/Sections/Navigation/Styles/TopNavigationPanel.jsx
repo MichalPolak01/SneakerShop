@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
 
     bottomBorder:{
         width,
-        height: 1,
+        height: 2,
         backgroundColor: "white",
     },
     

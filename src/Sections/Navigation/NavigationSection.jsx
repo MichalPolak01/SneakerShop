@@ -52,7 +52,7 @@ export default function NavigationSection() {
     }
 
     return (
-        <Stack.Navigator initialRouteName={userRole === "User"? "MainMenu": userRole === "Employe"? "Add product": "LoginScreen"} screenOptions={{headerShown: false}}>
+        <Stack.Navigator initialRouteName={userRole === "User"? "MainMenu": userRole === "Employee"? "AddProduct": "LoginScreen"} screenOptions={{headerShown: false}}>
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name='SignUp' component={SignUpScreen} />
             <Stack.Screen name='Product' component={ProductScreen} />
