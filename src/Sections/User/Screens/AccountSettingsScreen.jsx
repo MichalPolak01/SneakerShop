@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import { View, Text, TouchableOpacity, Image, Modal, ActivityIndicator, ToastAndroid } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; 
+import { useNavigation, CommonActions } from '@react-navigation/native'; 
 import { styles } from '../Styles/AccountSettingsStyle';
 import TopNavigationCleanPanel from '../../Navigation/Panels/Top/TopNavigationCleanPanel';
 import BottomNavigationUserPanel from '../../Navigation/Panels/Bottom/BottomNavigationUserPanel';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import * as Keychain from 'react-native-keychain';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function AccountSettingsScreen() {
     const navigation = useNavigation();
@@ -13,9 +14,16 @@ export default function AccountSettingsScreen() {
 
     const handleLogout = async () => {
         try {
+            await AsyncStorage.removeItem('cart');
             await Keychain.resetGenericPassword();
             ToastAndroid.showWithGravity('Logged out successfully!', ToastAndroid.SHORT, ToastAndroid.CENTER);
-            navigation.navigate('Login');
+            
+            navigation.dispatch(
+                CommonActions.reset({
+                    index: 0,
+                    routes: [{ name: 'Login' }],
+                })
+            );
         } catch (error) {
             console.log('Failed to log out', error);
             ToastAndroid.showWithGravity('Failed to log out. Please try again!', ToastAndroid.SHORT, ToastAndroid.CENTER);

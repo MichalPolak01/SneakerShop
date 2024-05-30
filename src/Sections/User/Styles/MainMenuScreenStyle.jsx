@@ -11,6 +11,9 @@ export const styles = StyleSheet.create({
         flex: 1, 
         alignItems: 'center',
     },
+    keyboardBox: {
+        flex: 1,
+    },
     mainContainer:{
         flexGrow: 1,
         flexDirection: 'row',
@@ -31,17 +34,18 @@ export const styles = StyleSheet.create({
         borderRadius: 20,
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'relative',
     },
     productImage:{
-        width: 150,
-        height: 100,
+        flex: 1,
+        height: '100%',
+        width: '100%',
         marginBottom: 50,
+        borderRadius: 20,
     },
     infoProductContainer:{
         backgroundColor: "white",
         width: "103%",
-        height: 60,
+        height: 68,
         borderColor: primaryColor,
         borderWidth: 2,
         borderRadius: 20,
@@ -49,12 +53,14 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        bottom: -4, 
+        gap: 0,
+        bottom: -4,
+        padding: 1 
     },
     infoProductText:{
         color: primaryColor,
         fontSize: 20,
-        fontWeight: "bold"
+        fontFamily: 'Mina-Bold'
     },
     backgroundFilter:{
         width: "100%",
@@ -67,12 +73,13 @@ export const styles = StyleSheet.create({
     },
     filterContainer:{
         backgroundColor: "white",
-        width: "80%",
-        height: "80%",
+        width: width * 0.85,
+        height: height * 0.85,
         borderColor: primaryColor,
         borderWidth: 3,
         borderRadius: 20,
         display: 'flex',
+        justifyContent: 'center',
         alignItems: 'center',
     },
     filterContentContainer:{
@@ -81,9 +88,15 @@ export const styles = StyleSheet.create({
         backgroundColor: "white",
         width: 322,
     },
+    buttonFilterContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
     buttonFilter:{
+        marginHorizontal: 10,
         backgroundColor: primaryColor,
-        width: 250,
+        width: 120,
         height: 45,
         borderRadius: 10,
         display: 'flex',
@@ -94,7 +107,7 @@ export const styles = StyleSheet.create({
     },
     textButtonFilter:{
         color: 'white',
-        fontWeight: 'bold',
+        fontFamily: 'Mina-Bold',
         fontSize: 17,
     },
     closeImage:{
@@ -129,20 +142,21 @@ export const styles = StyleSheet.create({
     },
     titleText:{
         fontSize: 20,
-        fontWeight:"600",
-        marginLeft: 15,
+        fontFamily: 'Mina-Bold',
+        marginLeft: 10,
         marginBottom: 10,
         color: primaryColor
     },
     checkboxText:{
-        fontWeight:"600",
+        fontFamily: 'Mina-Bold',
+        fontSize: 16,
         marginLeft: 15,
     },
     borderFilder: {
         marginTop: 15,
         marginBottom: 15,
         width: 250,
-        height: 1,
+        height: 2,
         backgroundColor: primaryColor,
     },
     inputSection: {
@@ -152,31 +166,34 @@ export const styles = StyleSheet.create({
     inputContainers: {
         display: 'flex',
         flexDirection: 'row',
-        justifyContent:"space-between",
+        justifyContent:"space-around",
+        gap: 20,
         width: 200,
     },
     inputName:{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        width: 200,
+        width: 220,
         height: 50,
         borderWidth: 1,
-        borderRadius: 5,
+        borderRadius: 10,
     },
     input:{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        width: 60,
-        height: 55,
+        width: 100,
+        height: 50,
         borderWidth: 1,
-        borderRadius: 5,
+        borderRadius: 10,
     },
     inputText:{
+        width: '100%',
+        textAlign: 'center',
         color: primaryColor,
-        fontSize: 15,
-        fontWeight: 'bold'
+        fontSize: 16,
+        fontFamily: 'Mina-Bold'
     },
     placeholderText: {
         color: primaryColor,

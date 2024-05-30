@@ -1,6 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
 
-
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
@@ -15,6 +14,8 @@ export const styles = StyleSheet.create({
     mainContainer:{
         flexGrow: 1,
         alignItems: 'center',
+        width: width,
+        paddingBottom: 100,
     },
     payForCartButton:{
         backgroundColor: primaryColor,
@@ -22,15 +23,18 @@ export const styles = StyleSheet.create({
         width: width * 0.7,
         height: 65,
         borderRadius: 10,
+        borderColor: '#fff',
+        borderWidth: 2,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        marginVertical: 20
+        position: 'absolute',
+        bottom: 60
     },
     payForCartText:{
         color: "white",
-        fontSize: 28,
-        fontWeight: "700"
+        fontSize: 22,
+        fontFamily: 'Mina-Bold'
     },
     cashImage:{
         width: 75,
@@ -40,18 +44,18 @@ export const styles = StyleSheet.create({
     cartProduct:{
         display: "flex",
         flexDirection: "row",
-        height: 130,
+        height: 140,
         width: 385,
         borderColor: primaryColor,
         borderWidth: 3,
         borderRadius: 20,
         backgroundColor: "white",
-        marginTop: 15
+        marginTop: 20
     },
     productImageContainer:{
         backgroundColor: "#d7d7d7",
-        width: 130,
-        height: 130,
+        width: 140,
+        height: 140,
         borderColor: primaryColor,
         borderWidth: 3,
         borderRadius: 20,
@@ -59,33 +63,42 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         left: -3,
-        top: -3
+        top: -3,
+        zIndex: 1
     },
     productImage:{
-        width: 110,
-        height: 60,
+        flex: 1,
+        width: '100%',
+        height: '100%',
+        borderRadius: 20,
     },
     productInfoContainer:{
         width: '65%',
-        height: 'auto',
         display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
     },
     nameProductText:{
         color: primaryColor,
         fontSize: 25,
-        fontWeight: 'bold',
-        marginTop: 12,
+        fontFamily: 'Mina-Bold',
+        marginTop: 10,
+        overflow: 'hidden'
     },
     sizeContainer:{
-        height: 40,
         display: 'flex',
         flexDirection: 'row',
     },
+    sizeNameText:{
+        color: primaryColor,
+        fontFamily: 'Mina-Bold',
+        fontSize: 16,
+    },
     sizeText:{
         color: primaryColor,
-        fontSize: 20,
+        fontFamily: 'Mina-Regular',
+        fontSize: 16,
     },
     priceContainer:{
         width: '112%',
@@ -94,22 +107,46 @@ export const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        borderColor: primaryColor,
-        borderWidth: 4,
+        padding: 4,
         borderRadius: 17,
         zIndex: -1,
-        right: 10
+        right: 21,
+        bottom: 3
     },
     trashContainer:{
         display: "flex",
         position: "absolute",
-        width: 30,
-        height: 30,
+        width: 35,
+        height: 35,
         right: 5,
-        top: 4
+        bottom: 40
     },
     trashIcon:{
-        width: 30,
-        height: 30,
+        width: '100%',
+        height: '100%',
     },
+    quantityContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 4
+    },
+    quantityButton: {
+        backgroundColor: primaryColor,
+        width: 24,
+        height: 24,
+        borderRadius: 13,
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginHorizontal: 6,
+    },
+    quantityText: {
+        color: '#fff',
+        fontFamily: 'Mina-Bold',
+        fontSize: 16,
+        textAlignVertical: 'center',
+        alignItems: 'center',
+    }
 });

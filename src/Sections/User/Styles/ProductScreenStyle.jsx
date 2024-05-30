@@ -1,71 +1,88 @@
 import { StyleSheet, Dimensions } from "react-native";
 
-const { width } = Dimensions.get('window');
-const squareSize = width * 0.65;
-const imageSize = width * 0.60;
+const { width, height } = Dimensions.get('window');
 
 const primaryColor = '#411c5d';
 
 export const styles = StyleSheet.create({
     body: {
         backgroundColor: '#c3c3dc',
-        flex: 1, 
         alignItems: 'center',
     },
     mainContainer:{
         flexGrow: 1,
         alignItems: 'center',
-        width: 411 // Później do zmiany bo belka się buguje
+        width: width,
+        paddingBottom: 175,
     },
-    productContainer:{
+    productContainer: {
+        width: width,
+        height: height * 0.4,
+        marginVertical: 10,
+    },
+    carouselImageContainer:{
         backgroundColor: "#d7d7d7",
-        width: squareSize+50,
-        height: squareSize,
+        width: width,
+        height: '100%',
         borderColor: primaryColor,
-        borderWidth: 3,
+        borderWidth: 2,
         borderRadius: 20,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 20,
-        marginBottom: 10,
     },
-    productImage:{
-        width: imageSize+50,
-        height: imageSize,
+    carouselImage: {
+        flex: 1,
+        width: '100%',
+        height: '100%',
+        borderRadius: 20,
+        resizeMode: 'cover',
     },
     categoryText:{
         color: primaryColor,
-        fontSize: 16,
-        marginBottom: 3,
+        fontSize: 20,
+        fontFamily: 'Mina-Regular',
     },
     nameProductText:{
+        fontFamily: 'Mina-Bold',
         color: primaryColor,
-        fontSize: 25,
-        fontWeight: "bold",
-        marginBottom: 15,
+        fontSize: 33,
+        marginTop: 15,
     },
     sizeProductContainer:{
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 13,
         height: 50
     },
     sizeProductText:{
         color: primaryColor,
         fontSize: 20,
-        fontWeight: "bold"
+        fontFamily: 'Mina-Bold',
+    },
+    detailsHeaderText: {
+        color: primaryColor,
+        fontSize: 25,
+        fontFamily: 'Mina-Bold',
+    },
+    detailsText: {
+        color: primaryColor,
+        marginTop: 3,
+        fontSize: 15,
+        fontFamily: 'Mina-Regular'
+    },
+    detailsNameText: {
+        fontFamily: 'Mina-Bold'
     },
     SelectorContainer:{
         backgroundColor: "#d7d7d7",
-        width: 120,
+        width: width * 0.4,
         height: 35,
-        marginLeft: 18,
+        marginLeft: 10,
         borderColor: primaryColor,
         borderWidth: 3,
-        borderRadius: 20,
+        borderRadius: 15,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -73,29 +90,27 @@ export const styles = StyleSheet.create({
     sizePickerContainer:{
         width: '100%',
         height: 10,
-        marginLeft: 18
     },
-    sizeSelectorValue:{
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: 'white'
+    addProductButtonContainer: {
+        position: 'absolute',
+        bottom: 70,
+        width: width * 0.7,
+        height: 65,
     },
     addProductButton:{
         backgroundColor: primaryColor,
         flexDirection: "row",
-        width: 250,
-        height: 65,
-        borderRadius: 10,
+        width: '100%',
+        height: '100%',
+        borderRadius: 15,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 20,
-        marginTop: 20,
     },
     addProductText:{
         color: "white",
-        fontSize: 28,
-        fontWeight: "700"
+        fontSize: 30,
+        fontFamily: 'Mina-Bold',
     },
     shopingCartImage:{
         width: 45,
@@ -103,6 +118,6 @@ export const styles = StyleSheet.create({
         marginRight: 20,
     },
     descriptionContainer:{
-        width: "85%",
+        width: width * 0.75,
     }
 });
