@@ -45,7 +45,8 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         height: 140,
-        width: 385,
+        // width: 385,
+        width: width * 0.95,
         borderColor: primaryColor,
         borderWidth: 3,
         borderRadius: 20,
@@ -110,7 +111,7 @@ export const styles = StyleSheet.create({
         padding: 4,
         borderRadius: 17,
         zIndex: -1,
-        right: 21,
+        right: width * 0.05 + 3,
         bottom: 3
     },
     trashContainer:{

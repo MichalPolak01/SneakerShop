@@ -13,35 +13,45 @@ export const styles = StyleSheet.create({
     mainContainer:{
         flexGrow: 1,
         alignItems: 'center',
-        width: 411 // Później do zmiany bo belka się buguje
+        width: width * 0.95,
     },
     setContainer:{
-        backgroundColor: "grey",
-        width: "95%",
+        backgroundColor: "#d7d7d7",
+        width: "100%",
         flex: 1,
         alignItems: 'center',
         borderColor: primaryColor,
         borderWidth: 3,
         borderRadius: 20,
-        marginTop: 6,
-        marginBottom: 6,
+        marginVertical: 10,
+        padding: 10
+    },
+    contactContainer: {
+        padding: 10
+    },
+    contactTextLabel: {
+        fontFamily: 'Mina-Bold'
+    },
+    contactText: {
+        fontFamily: 'Mina-Regular',
+        fontSize: 16,
+        color: '#000'
     },
     acceptButton:{
         backgroundColor: primaryColor,
         flexDirection: "row",
-        width: 300,
+        width: width * 0.7,
         height: 65,
-        borderRadius: 10,
+        borderRadius: 15,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 20,
-        marginTop: 20,
+        marginVertical: 20
     },
     acceptText:{
         color: "white",
         fontSize: 28,
-        fontWeight: "700"
+        fontFamily: 'Mina-Bold'
     },
     acceptImage:{
         width: 45,
@@ -52,12 +62,11 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         height: 130,
-        width: 370,
+        width: '95%',
         borderColor: primaryColor,
         borderWidth: 3,
         borderRadius: 20,
         backgroundColor: "white",
-        marginTop: 15
     },
     productImageContainer:{
         backgroundColor: "#d7d7d7",
@@ -73,8 +82,8 @@ export const styles = StyleSheet.create({
         top: -3
     },
     productImage:{
-        width: 110,
-        height: 60,
+        width: '100%',
+        height: '100%',
     },
     productInfoContainer:{
         width: '65%',
@@ -86,42 +95,54 @@ export const styles = StyleSheet.create({
     nameProductText:{
         color: primaryColor,
         fontSize: 25,
-        fontWeight: 'bold',
-        marginTop: 10,
-    },
-    sizeContainer:{
-        height: 40,
-        display: 'flex',
-        flexDirection: 'row',
-        marginTop: 5
+        fontFamily: 'Mina-Bold',
     },
     sizeText:{
         color: primaryColor,
         fontSize: 20,
+        fontFamily: 'Mina-Regular'
     },
-    priceContainer:{
-        width: '110%',
+    quantityText:{
+        color: primaryColor,
+        fontSize: 16,
+        fontFamily: 'Mina-Regular'
+    },
+    /* Sort */
+    sortContent: {
+        width,
+        height: 85,
+        backgroundColor: 'rgba(255, 255, 255, 0.8)',        
+    },
+    sortTitle: {
+        width,
+        height: 60,
+        fontFamily: 'Mina-Regular',
+        fontSize: 20,
+        color: primaryColor,
+        textAlign: 'center',
+        paddingTop: 15
+    },
+    sortButton: {
         height: 40,
-        backgroundColor: primaryColor,
-        display: 'flex',
-        justifyContent: 'center',
+        width,
+        justifyContent: 'space-between',
         alignItems: 'center',
-        borderColor: primaryColor,
-        borderWidth: 4,
-        borderRadius: 17,
-        zIndex: -1,
-        right: 12
+        flexDirection: 'row',
+        borderBottomColor: 'gray',
+        borderBottomWidth: 1,
+        paddingHorizontal: 15
     },
-    trashContainer:{
-        display: "flex",
-        position: "absolute",
-        width: 30,
-        height: 30,
-        right: 5,
-        top: 4
+    sortButtonChoosen: {
+        borderBottomColor: primaryColor,
+        borderBottomWidth: 2,
     },
-    trashIcon:{
-        width: 30,
-        height: 30,
+    sortButtonText: {
+        color: 'gray',
+        fontFamily: 'Mina-Regular',
+        fontSize: 15
     },
+    sortButtonTextChoosen: {
+        fontFamily: 'Mina-Bold',
+        color: primaryColor
+    }
 });
