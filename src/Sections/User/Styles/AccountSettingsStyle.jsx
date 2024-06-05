@@ -32,7 +32,6 @@ export const styles = StyleSheet.create({
         alignContent: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
-        justifyContent: 'space-between'
     },
 
     headerTextBox: {
@@ -46,6 +45,13 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 25,
         fontFamily: 'Mina-Bold'
+    },
+
+    email: {
+        color: '#fff',
+        textAlign: 'center',
+        fontSize: 16,
+        fontFamily: 'Mina-Regular',
     },
 
     person: {

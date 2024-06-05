@@ -48,6 +48,8 @@ export const styles = StyleSheet.create({
         color: primaryColor,
         fontSize: 33,
         marginTop: 15,
+        marginHorizontal: 10,
+        textAlign: 'center'
     },
     sizeProductContainer:{
         display: 'flex',

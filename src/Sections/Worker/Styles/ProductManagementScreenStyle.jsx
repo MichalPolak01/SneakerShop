@@ -60,6 +60,8 @@ export const styles = StyleSheet.create({
         color: primaryColor,
         fontSize: 25,
         fontFamily: 'Mina-Bold',
+        width: (width * 0.95) - 140,
+        textAlign: 'center'
     },
     sizeContainer:{
         width: 160

@@ -16,6 +16,14 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         width: width,
         paddingBottom: 100,
+        
+    },
+    payForCartButtonBox: {
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        
     },
     payForCartButton:{
         backgroundColor: primaryColor,
@@ -29,7 +37,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        bottom: 60
+        bottom: 20
     },
     payForCartText:{
         color: "white",
@@ -45,7 +53,6 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         height: 140,
-        // width: 385,
         width: width * 0.95,
         borderColor: primaryColor,
         borderWidth: 3,
@@ -82,7 +89,7 @@ export const styles = StyleSheet.create({
     },
     nameProductText:{
         color: primaryColor,
-        fontSize: 25,
+        fontSize: 20,
         fontFamily: 'Mina-Bold',
         marginTop: 10,
         overflow: 'hidden'
@@ -112,7 +119,7 @@ export const styles = StyleSheet.create({
         borderRadius: 17,
         zIndex: -1,
         right: width * 0.05 + 3,
-        bottom: 3
+        bottom: 0
     },
     trashContainer:{
         display: "flex",

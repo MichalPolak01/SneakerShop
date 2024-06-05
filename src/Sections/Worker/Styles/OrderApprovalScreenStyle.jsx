@@ -67,6 +67,7 @@ export const styles = StyleSheet.create({
         borderWidth: 3,
         borderRadius: 20,
         backgroundColor: "white",
+        marginBottom: 10
     },
     productImageContainer:{
         backgroundColor: "#d7d7d7",
@@ -84,6 +85,8 @@ export const styles = StyleSheet.create({
     productImage:{
         width: '100%',
         height: '100%',
+        display: 'flex',
+        borderRadius: 20,
     },
     productInfoContainer:{
         width: '65%',
@@ -94,12 +97,13 @@ export const styles = StyleSheet.create({
     },
     nameProductText:{
         color: primaryColor,
-        fontSize: 25,
+        fontSize: 20,
+        textAlign: 'center',
         fontFamily: 'Mina-Bold',
     },
     sizeText:{
         color: primaryColor,
-        fontSize: 20,
+        fontSize: 16,
         fontFamily: 'Mina-Regular'
     },
     quantityText:{

@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
     productContainer:{
         backgroundColor: "#d7d7d7",
         width: (width - 35) /2,
-        height: 200,
+        height: 220,
         borderColor: primaryColor,
         borderWidth: 2,
         borderRadius: 20,
@@ -39,13 +39,14 @@ export const styles = StyleSheet.create({
         flex: 1,
         height: '100%',
         width: '100%',
-        marginBottom: 50,
-        borderRadius: 20,
+        marginBottom: 70,
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
     },
     infoProductContainer:{
         backgroundColor: "white",
         width: "103%",
-        height: 68,
+        height: 90,
         borderColor: primaryColor,
         borderWidth: 2,
         borderRadius: 20,
@@ -55,12 +56,15 @@ export const styles = StyleSheet.create({
         position: 'absolute',
         gap: 0,
         bottom: -4,
-        padding: 1 
+        padding: 3
     },
     infoProductText:{
         color: primaryColor,
-        fontSize: 20,
-        fontFamily: 'Mina-Bold'
+        fontSize: 18,
+        // paddingHorizontal: 5,
+        // marginHorizontal: 5,
+        fontFamily: 'Mina-Bold',
+        textAlign: 'center'
     },
     backgroundFilter:{
         width: "100%",

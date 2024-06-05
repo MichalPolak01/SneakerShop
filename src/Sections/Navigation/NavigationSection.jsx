@@ -29,7 +29,7 @@ export default function NavigationSection() {
             if (credentials) {
                 const parsedData = JSON.parse(credentials.password);
                 setUserRole(parsedData.roles[0].name);
-                console.log(userRole); /* DO USUNIĘCIA */
+                // console.log(userRole); /* DO USUNIĘCIA */
                 // console.log('Parsed Credentials ns:', parsedData);
             } else {
                 console.log('No credentials stored');

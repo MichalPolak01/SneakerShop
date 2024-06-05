@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, TouchableOpacity, ScrollView, Alert } from 'react-native';
+import { View, Text, Image, TouchableOpacity, ScrollView, Alert, ToastAndroid } from 'react-native';
 import axios from 'axios';
 import { styles } from '../Styles/OrderApprovalScreenStyle';
 import TopNavigationPanel from '../../Navigation/Panels/Top/TopNavigationSortPanel';
 import BottomNavigationPanel from '../../Navigation/Panels/Bottom/BottomNavigationWorkerPanel';
 import * as Keychain from 'react-native-keychain';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Animated, { FadeIn, FadeInDown, FadeInUp } from 'react-native-reanimated';
+import Animated, { FadeInUp } from 'react-native-reanimated';
 import LoadingModal from '../../Login/Components/LoadingModal';
 
 export default function OrderApprovalScreen() {
@@ -17,6 +17,7 @@ export default function OrderApprovalScreen() {
 
     useEffect(() => {
         fetchOrders();
+        
     }, []);
 
     const fetchOrders = async () => {
@@ -29,12 +30,14 @@ export default function OrderApprovalScreen() {
 
         try {
             setLoading(true);
-            const response = await axios.get('https://sneakers-api.fly.dev/api/order',{
+            const response = await axios.get('https://sneakers-api.fly.dev/api/order', {
                 headers: { 
                     Authorization: `Bearer ${token}` 
                 }
             });
-            setOrders(response.data);
+
+            const newOrders = response.data.filter(order => order.status === 'nowe').sort((a, b) => new Date(b.date) - new Date(a.date));
+            setOrders(newOrders);
             setLoading(false);
         } catch (error) {
             console.error('Error fetching orders:', error);
@@ -74,17 +77,46 @@ export default function OrderApprovalScreen() {
             <ScrollView contentContainerStyle={styles.mainContainer}>
                 {!loading ? 
                     orders.map((order, index) => (
-                        <OrderItem key={index} order={order} />
+                        <OrderItem key={index} order={order} fetchOrders={fetchOrders} />
                     )) : 
-                    <LoadingModal />}
+                <LoadingModal />}
             </ScrollView>
             <BottomNavigationPanel />
         </View>
     );
 }
 
-function OrderItem({ order }) {
-    const totalPrice = order.stocks.reduce((sum, stock) => sum + stock.quantity * stock.product.price, 0);
+function OrderItem({ order, fetchOrders }) {
+    const [loading, setLoading] = useState(false);
+
+    const updateOrderStatus = async (orderId, status) => {
+        console.log(orderId);
+        const credentials = await Keychain.getGenericPassword();
+        if (!credentials) {
+            throw new Error('No credentials stored');
+        }
+        const parsedData = JSON.parse(credentials.password);
+        const token = parsedData.token;
+        
+    
+        try {
+            setLoading(true);
+            const response = await axios.put(`https://sneakers-api.fly.dev/api/order/${orderId}`, { status },
+            {
+                headers: { 
+                    Authorization: `Bearer ${token}` 
+                }
+            });
+            console.log('Order status updated successfully:', response.data);
+            ToastAndroid.showWithGravity('Status zamówienia został zmieniony.', ToastAndroid.SHORT, ToastAndroid.CENTER);
+            setLoading(false);
+            fetchOrders();
+        } catch (error) {
+            setLoading(false);
+            ToastAndroid.showWithGravity('Przy zmienianiu statusu zamówienia wystąpił błąd.', ToastAndroid.SHORT, ToastAndroid.CENTER);
+            console.error('Error updating order status:', error);
+        }
+    };
 
     return (
         <Animated.View entering={FadeInUp.duration(1000).springify()} style={styles.setContainer}>
@@ -99,103 +131,30 @@ function OrderItem({ order }) {
                     <CartItem key={index} stock={stock} />
                 ))}
             </Animated.View>
-            {/* <Text style={styles.totalPrice}>Total Price: {totalPrice.toFixed(2)} zł</Text> */}
             <Animated.View entering={FadeInUp.duration(1000).springify().delay(2300)}>
-                <TouchableOpacity style={styles.acceptButton}>
+                <TouchableOpacity style={styles.acceptButton} onPress={() => updateOrderStatus(order.id, 'zrealizowane')}>
                     <Ionicons name={'checkmark-circle-outline'} size={38} color= {'#fff'} style={styles.IconsSize} />
                     <Text style={styles.acceptText}> Shipped</Text>
                 </TouchableOpacity>
             </Animated.View>
-            {/* <TouchableOpacity style={styles.trashContainer}>
-                <Image style={styles.trashIcon} source={require('../../../../assets/Images/Menu/TrashIcon.png')} />
-            </TouchableOpacity> */}
+            <LoadingModal visible={loading}/>
         </Animated.View>
     );
 }
 
 function CartItem({ stock }) {
+    const productImageUrl = stock.product.photos[0]?.imgUrl || '';
+
     return (
         <Animated.View entering={FadeInUp.duration(1000).springify().delay(1200)} style={styles.cartProduct}>
             <Animated.View entering={FadeInUp.duration(1000).springify()} style={styles.productImageContainer}>
-                <Image style={styles.productImage} source={{ uri: stock.product.image }} />
+                <Image style={styles.productImage} source={{ uri: productImageUrl }} />
             </Animated.View>
             <Animated.View entering={FadeInUp.duration(1000).springify().delay(1400)} style={styles.productInfoContainer}>
                 <Animated.Text entering={FadeInUp.duration(1000).springify().delay(1600)} style={styles.nameProductText}>{stock.product.producer} {stock.product.model}</Animated.Text>
                 <Animated.Text entering={FadeInUp.duration(1000).springify().delay(1800)} style={styles.sizeText}><Text style={styles.contactTextLabel}>Size:</Text> {stock.product.size}</Animated.Text>
                 <Animated.Text entering={FadeInUp.duration(1000).springify().delay(2000)} style={styles.quantityText}><Text style={styles.contactTextLabel}>Quantity:</Text> {stock.quantity}</Animated.Text>
-                {/* <Text style={styles.priceText}>{(stock.quantity * stock.product.price).toFixed(2)} zł</Text> */}
             </Animated.View>
         </Animated.View>
     );
 }
-
-
-
-
-
-
-
-
-
-
-
-// import React from 'react';
-// import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
-// import { styles } from '../Styles/OrderApprovalScreenStyle';
-// import TopNavigationPanel from '../../Navigation/Panels/Top/TopNavigationCleanPanel';
-// import BottomNavigationPanel from '../../Navigation/Panels/Bottom/BottomNavigationWorkerPanel';
-// import { ShopList } from '../../User/Models/Product';
-
-// export default function OrderApprovalScreen() {
-
-//     return (
-//         <View style={styles.body}>
-//             <TopNavigationPanel/>
-//             <ScrollView contentContainerStyle={styles.mainContainer}>
-//                 {ShopList.map((set, index) => ( 
-//                     <SetItem key={index} products={set.products} />
-//                 ))}
-//             </ScrollView>
-//             <BottomNavigationPanel/>
-//         </View>
-//     )
-// }
-
-// function SetItem({ products }) {
-//     return (
-//         <View style={styles.setContainer}>
-//             <View style={{marginTop: 25}}>
-//                 {products.map((product, index) => ( 
-//                     <CartItem key={index} product={product} /> 
-//                 ))}
-//             </View>
-//             <TouchableOpacity style={styles.acceptButton}>
-//                  <Image style={styles.acceptImage} source={require('../../../../assets/Images/Worker/AcceptShipIcon.png')} />
-//                  <Text style={styles.acceptText}> Shipped</Text>
-//             </TouchableOpacity>
-//             <TouchableOpacity style={styles.trashContainer}>
-//                 <Image style={styles.trashIcon} source={require('../../../../assets/Images/Menu/TrashIcon.png')} />
-//             </TouchableOpacity>
-//         </View>
-//     );
-// }
-
-// function CartItem({ product }) {
-//     return (
-//         <View style={styles.cartProduct}>
-//             <View style={styles.productImageContainer}>
-//                 <Image style={styles.productImage} source={product.image} />
-//             </View>
-//             <View style={styles.productInfoContainer}>
-//                 <Text style={styles.nameProductText}>{product.name}</Text>
-//                 <View style={styles.sizeContainer}>
-//                     <Text style={styles.sizeText}>Rozmiar</Text>
-//                     <Text style={{...styles.sizeText, fontWeight: "bold"}}>  41</Text>
-//                 </View>
-//                 <View style={styles.priceContainer}>
-//                     <Text style={styles.acceptText}>{product.price.toFixed(2)} zł</Text>
-//                 </View>
-//             </View>
-//         </View>
-//     );
-// }

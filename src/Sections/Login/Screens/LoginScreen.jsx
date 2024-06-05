@@ -43,7 +43,6 @@ export default function LoginScreen() {
     }
 
     const isEmailAvailable = (email) => {
-        /* TO DO CHECK EMAIL IN DATABASE */
         return true;
     }
 
@@ -65,7 +64,16 @@ export default function LoginScreen() {
         }));
     };
 
-    const showAlertEmailNotConfirmed = () => {
+    const showAlertEmailNotConfirmed = async (email) => {
+        const sendConfirmEmail = async () => {
+            try {
+                const response = await axios.post('https://sneakers-api.fly.dev/api/auth/sendConfirmEmail', { email });
+                console.log('Confirmation email sent:', response.data);
+            } catch (error) {
+                console.error('Failed to send confirmation email', error);
+            }
+        };
+    
         Alert.alert(
             "Email niepotwierdzony!",
             "Aby zalogować się na to konto musisz potwierdzić swoje konto. \nMożesz to zrobić poprzez kliknięcie w link na swoim koncie emial.",
@@ -76,11 +84,11 @@ export default function LoginScreen() {
                 },
                 {
                     text: "Wyślij wiadomość ponownie",
-                    onPress: () => console.log("OK Pressed")
+                    onPress: sendConfirmEmail
                 }
             ]
         );
-    }
+    };
 
     const logIn = () => {
         setModalVisibility(true);
@@ -112,7 +120,7 @@ export default function LoginScreen() {
             }
 
             if (!response.data.emailConfirmed) {
-                showAlertEmailNotConfirmed();
+                showAlertEmailNotConfirmed(response.data.email);
             }
             setModalVisibility(false);
         }).catch(error => {
@@ -126,6 +134,7 @@ export default function LoginScreen() {
             setErrorMessage(errorMessages);
         });
     }
+
 
     return (
         <ScrollView style={styles.body}>

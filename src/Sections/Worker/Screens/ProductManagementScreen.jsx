@@ -47,7 +47,7 @@ export default function ProductManagementScreen() {
         } else if (option === 'quantityAscending') {
             sortedProducts.sort((a, b) => 
                 a.stocks.reduce((sum, size) => sum + size.quantity, 0) -
-                b.stocks.reduce((sum, size) => sum + size.quantity, 0)  
+                b.stocks.reduce((sum, size) => sum + size.quantity, 0)
             );
         } else if (option === 'name') {
             sortedProducts.sort((a, b) => a.model.localeCompare(b.model));
@@ -69,7 +69,7 @@ export default function ProductManagementScreen() {
         const token = parsedData.token;
 
         try {
-            const existingSize = selectedProduct.stocks.find(stock => stock.size === parseInt(newSize));
+            const existingSize = selectedProduct.stocks.find(stock => stock.size === parseFloat(newSize));
             if (existingSize) {
                 const updatedQuantity = existingSize.quantity + parseInt(newQuantity);
                 await axios.put(`https://sneakers-api.fly.dev/api/Stock/${existingSize.id}`, {
@@ -83,10 +83,10 @@ export default function ProductManagementScreen() {
                 await axios.post(`https://sneakers-api.fly.dev/api/Stock/${selectedProduct.id}`, {
                     discount: 0,
                     quantity: parseInt(newQuantity),
-                    size: parseInt(newSize)
+                    size: parseFloat(newSize)
                 }, {
                     headers: { 
-                        Authorization: `Bearer ${token}` 
+                        Authorization: `Bearer ${token}`
                     }
                 });
             }
@@ -105,7 +105,7 @@ export default function ProductManagementScreen() {
         const parsedData = JSON.parse(credentials.password);
         const token = parsedData.token;
 
-        const existingSize = selectedProduct.stocks.find(s => s.size === parseInt(newSize));
+        const existingSize = selectedProduct.stocks.find(s => s.size === parseFloat(newSize));
         if (!existingSize) {
             Alert.alert('Error', 'This size does not exist.');
             return;
@@ -193,7 +193,7 @@ export default function ProductManagementScreen() {
                     </View>
                 </View>
 
-                <Animated.View entering={FadeInUp.duration(1000).springify()} style={styles.priceContainer}>
+                <Animated.View entering={FadeInUp.duration(1000).springify().delay(500)} style={styles.priceContainer}>
                     <TouchableOpacity
                         style={styles.manageButtonContainer}
                         onPress={() => {
@@ -234,7 +234,7 @@ export default function ProductManagementScreen() {
                     placeholder="Size"
                     value={newSize}
                     onChangeText={setNewSize}
-                    keyboardType="numeric"
+                    keyboardType="decimal-pad"
                 />
             </Animated.View>
             <Animated.View entering={FadeInDown.duration(1000).springify().delay(500)}  style={{width: '100%'}}>

@@ -3,6 +3,8 @@ import { View, Text, TouchableOpacity, Image, ScrollView, ToastAndroid, Keyboard
 import { styles } from '../Styles/ChangeInformationStyle';
 import TopNavigationAccountSettings from '../../Navigation/Panels/Top/TopNavigationAccountSettings';
 import AccountSettingInput from '../Models/AccountSettingInput';
+import Animated, { FadeInDown, FadeInUp } from 'react-native-reanimated';
+
 
 export default function ChangePersonalInformationScreen() {
     const [account, setAccount] = useState({
@@ -99,7 +101,7 @@ export default function ChangePersonalInformationScreen() {
         <View style={styles.body}>
             <TopNavigationAccountSettings />
             <KeyboardAvoidingView behavior='height' style={styles.form} keyboardVerticalOffset={20}>
-                <ScrollView contentContainerStyle={styles.card}>
+                <Animated.ScrollView entering={FadeInUp.duration(500).springify().delay(200)} contentContainerStyle={styles.card}>
                     <View style={styles.header}>
                         <View style={styles.headerTextBox}>
                             <Text style={styles.title}>Edit Personal Information</Text>
@@ -116,7 +118,7 @@ export default function ChangePersonalInformationScreen() {
                             <Text style={styles.title}>Update</Text>
                         </TouchableOpacity>
                     </View>
-                </ScrollView>
+                </Animated.ScrollView>
             </KeyboardAvoidingView>
         </View>
     );

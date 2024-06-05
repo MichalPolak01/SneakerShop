@@ -14,6 +14,7 @@ export default function AccountSettingsScreen() {
     const navigation = useNavigation();
     const [loading, setLoading] = useState(false);
     const [userRole, setUserRole] = useState(null);
+    const [email, setEmail] = useState('');
 
     const handleLogout = async () => {
         try {
@@ -44,6 +45,7 @@ export default function AccountSettingsScreen() {
         if (credentials) {
             const parsedData = JSON.parse(credentials.password);
             setUserRole(parsedData.roles[0].name);
+            setEmail(parsedData.email);
         } else {
             console.log('No credentials stored');
         }
@@ -57,7 +59,8 @@ export default function AccountSettingsScreen() {
                 <View style={styles.header}>
                     <Animated.View entering={FadeInUp.duration(1000).springify()} style={styles.headerBox}>
                         <View style={styles.headerTextBox}>
-                            <Animated.Text entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.title}>Witaj Jan</Animated.Text>  
+                            <Animated.Text entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.title}>Witaj</Animated.Text>
+                            <Animated.Text entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.email}>{ email }</Animated.Text>
                         </View>           
                         <Animated.View entering={FadeInUp.duration(1000).springify().randomDelay()} style={styles.person}>
                             <Image source={require('../../../../assets/Images/User/bambus.png')} style={styles.personImage} />

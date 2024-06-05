@@ -188,7 +188,7 @@ const ProductScreen = () => {
                     <Animated.Text entering={FadeInUp.duration(500).springify()}  style={styles.sizeProductText}>Opis</Animated.Text>
                     <Animated.Text entering={FadeInUp.duration(500).springify()}  style={{ color: '#411c5d', marginTop: 3 }}>{productInfo.color}</Animated.Text>
                     <Animated.Text entering={FadeInUp.duration(500).springify()}  style={{ color: '#411c5d', marginTop: 3 }}>{productInfo.gender}</Animated.Text>
-                    <Animated.Text entering={FadeInUp.duration(500).springify()}  style={{ color: '#411c5d', marginTop: 3 }}>{productInfo.description}</Animated.Text>
+                    {/* <Animated.Text entering={FadeInUp.duration(500).springify()}  style={{ color: '#411c5d', marginTop: 3 }}>{productInfo.description}</Animated.Text> */}
                 </View>
             </ScrollView>)}
             <Animated.View entering={FadeInDown.duration(1000).springify().randomDelay()} style={styles.addProductButtonContainer}>

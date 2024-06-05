@@ -69,11 +69,19 @@ export default function SignUpScreen() {
             errorMessages.email = 'Email address is required!';
         } else if (!isValidEmail(account.email)) {
             errorMessages.email = 'Invalid email address!';
-        } else if (isEmailUsed(account.email)) {
-            errorMessages.email = 'Account with this email address already exist!';
         } else {
-            errorMessages.email = '';
+            console.log(account.email);
+            const email = account.email;
+            await axios.post('https://sneakers-api.fly.dev/api/auth/checkEmail', { email })
+            .then (response => {
+                console.log(response.status === 200);
+                errorMessages.email = '';
+            }).catch( error => {
+                console.log(error.status === 200);
+                errorMessages.email = 'Account with this email address already exist!';
+            });
         }
+
         if (account.password.trim() === '') {
             errorMessages.password = 'Password is required!';
         } else if (!isStrongPassword(account.password)) {
@@ -104,11 +112,6 @@ export default function SignUpScreen() {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     };
-
-    const isEmailUsed = (email) => {
-        /* TO DO CHECK EMAIL IN DATABASE */
-        return false;
-    }
 
     const isStrongPassword = (password) => {
         return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(password);
@@ -151,16 +154,11 @@ export default function SignUpScreen() {
 
     const isValidPostalCode = (postalCode) => {
         const postalCodeRegex = /^[0-9]{2}-[0-9]{3}$/;
-        // if (name === 'postalCode' && !/^\d{2}-\d{3}$/.test(value)) {
-        //     return;
-        // }
     
         return postalCodeRegex.test(postalCode);
     };
 
-    const handleCheckPersonalData = async () => {
-        console.log(account);   /* DO USUNIĘCIA */
-       
+    const handleCheckPersonalData = async () => {       
         const errorMessages = await validatePersonalData();
 
         if ( errorMessages.contact.name !== '' || errorMessages.contact.lastname !== '' || errorMessages.contact.phoneNumber !== '' ||
@@ -173,8 +171,6 @@ export default function SignUpScreen() {
     }
 
     const handleRegister = async () => {
-        console.log(account);   /* DO USUNIĘCIA */
-
         const errorMessages = await validateDeliveryData();
 
         if ( errorMessages.contact.name !== '' || errorMessages.contact.lastname !== '' || errorMessages.contact.phoneNumber !== '' ||
@@ -186,15 +182,11 @@ export default function SignUpScreen() {
                 return;
         }
 
-        /* TO DO REGISTER */
         register();
     }
 
     const handleChange = (name, value, nested = false) => {
         /* Phone check */
-        // if ( name === 'phoneNumber' && !/^\+?([0-9]*)$/.test(value)) {
-        //     return;
-        // }
         if (name === 'phoneNumber' && !/^\d{0,9}$/.test(value)) {
             return;
         }
