@@ -61,8 +61,6 @@ export const styles = StyleSheet.create({
     infoProductText:{
         color: primaryColor,
         fontSize: 18,
-        // paddingHorizontal: 5,
-        // marginHorizontal: 5,
         fontFamily: 'Mina-Bold',
         textAlign: 'center'
     },

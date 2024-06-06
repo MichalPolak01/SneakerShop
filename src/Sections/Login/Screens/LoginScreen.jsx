@@ -171,14 +171,14 @@ export default function LoginScreen() {
                 </Animated.View>
             
                 {/* Developer login  */}
-                <View style={{ display: "flex", alignItems: "center", backgroundColor: "#411c5d", width: 300, borderRadius: 20 }}>
+                {/* <View style={{ display: "flex", alignItems: "center", backgroundColor: "#411c5d", width: 300, borderRadius: 20 }}>
                     <TouchableOpacity onPress={() => setLogin({ email: "michalpl6188@gmail.com", password: "Qwerty1234%" })}>
                         <Text style={[styles.buttonText, {textAlign: 'center'}]}>Worker</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => setLogin({ email: "michalpl918@gmail.com", password: "Qwerty1234%" })}>
                         <Text style={[styles.buttonText, {textAlign: 'center'}]}>User</Text>
                     </TouchableOpacity>
-                </View>
+                </View> */}
                 </KeyboardAvoidingView>
                 <LoadingModal visible={modalVisible}/>
         </ScrollView>
