@@ -45,6 +45,6 @@ Zarządzanie produktami: Pracownicy sklepu mogą dodawać nowe produkty, zarząd
 https://www.youtube.com/watch?v=m54trbL4VEg
 
 ## Autorzy:
-Kamil Dereń
-Michał Polak
-Bartek Kubik
+- Kamil Dereń
+- Michał Polak
+- Bartek Kubik
