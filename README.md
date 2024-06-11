@@ -1,13 +1,6 @@
 # SneakerShop
 
 SneakerShop to zaawansowana aplikacja mobilna, stworzona z myślą o użytkownikach chcących wygodnie i szybko dokonywać zakupów obuwia. Aplikacja została zrealizowana przy użyciu technologii React Native, co zapewnia jej działanie na różnych platformach mobilnych. Projekt obejmuje zarówno frontend, jak i backend, tworząc spójny i wydajny system obsługi sklepu obuwniczego.
-![1](https://github.com/MichalPolak01/SneakerShop/assets/104890694/536d2a12-ff59-499b-8850-bbb38b0d6564)
-![2](https://github.com/MichalPolak01/SneakerShop/assets/104890694/32ac508a-9937-4fe0-a02e-80300c0d61bb)
-![3](https://github.com/MichalPolak01/SneakerShop/assets/104890694/d173c782-eac1-4592-b889-9761dbbd34ba)
-![4](https://github.com/MichalPolak01/SneakerShop/assets/104890694/89a7c101-4535-4dc5-9e99-2a8ced0846c3)
-![5](https://github.com/MichalPolak01/SneakerShop/assets/104890694/1ae3f398-12f1-411b-9219-64e1b962577d)
-![6](https://github.com/MichalPolak01/SneakerShop/assets/104890694/847834de-b678-474d-aa48-8334dccc9b73)
-![Zrzut ekranu 2024-06-11 205222](https://github.com/MichalPolak01/SneakerShop/assets/104890694/17d92d2b-ebbf-4300-97a2-f2c9bda4203b)
 
 ## Ekrany aplikacji:
 <div align="center">
